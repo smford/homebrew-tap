@@ -5,28 +5,28 @@
 class Mdee < Formula
   desc "Terminal Markdown viewer for macOS iTerm2"
   homepage "https://github.com/smford/mdee"
-  version "1.2.2"
+  version "1.3.0"
   license "AGPL-3.0-or-later"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/mdee/releases/download/v#{version}/mdee-v#{version}-darwin-arm64.tar.gz"
-      sha256 "753f289290bb3241293fdacd8093ee3775f100e57b33c815e8afc30136ba66d3"
+      sha256 "7a56b7953afbc85d9fab58e2180df77618ac253dbc6d0de06237aef579aca36f"
     end
     on_intel do
       url "https://github.com/smford/mdee/releases/download/v#{version}/mdee-v#{version}-darwin-amd64.tar.gz"
-      sha256 "dd490e5885f2a2748a39ed5bf221230c1edc923b1bc74368c1f2b409f3715f8a"
+      sha256 "7fee88229187e46355edf1a11a597cdaf333dce49b4a8f8ea4ec83940b41c80e"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/mdee/releases/download/v#{version}/mdee-v#{version}-linux-arm64.tar.gz"
-      sha256 "5f1ba1be12f67c03b25af93b346c9567a9d6f44964aca71347149852138d8b89"
+      sha256 "f299abeed7c697ac8796e209e48f50064b5f8e033fd1c54b39244faff40001b8"
     end
     on_intel do
       url "https://github.com/smford/mdee/releases/download/v#{version}/mdee-v#{version}-linux-amd64.tar.gz"
-      sha256 "56cd2c66ab82cb30196ea2522d766b2efc0ffa35c57d1a1ed6b15392bbe81ced"
+      sha256 "1b60568c05036633b88c84cd6a7c6302d02b49b2c6991d1c186d1a74228ec5c0"
     end
   end
 
