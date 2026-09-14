@@ -5,28 +5,28 @@
 class Md < Formula
   desc "Terminal Markdown viewer for macOS iTerm2"
   homepage "https://github.com/smford/md"
-  version "1.1.0"
+  version "1.1.1"
   license "AGPL-3.0-or-later"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/md/releases/download/v#{version}/md-v#{version}-darwin-arm64.tar.gz"
-      sha256 "84d54ed5d41eb923d6f2f48cb3b7444e3b018e50d42e65cb080f23b4c1991adc"
+      sha256 "75fd0122a4de1d27f52b8fcc7a8fdd941c622bffb8600ef8d0c04e0bdc5845b0"
     end
     on_intel do
       url "https://github.com/smford/md/releases/download/v#{version}/md-v#{version}-darwin-amd64.tar.gz"
-      sha256 "33b9cea166bcd38167f731c24b626aa2e836c6219f522ca86c44bc96555fb342"
+      sha256 "5bf5ca560d5c6645498fd8cc79e93b9fb8b9073e7602f0f5f7a92a8866fb0e66"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/md/releases/download/v#{version}/md-v#{version}-linux-arm64.tar.gz"
-      sha256 "551219197f1b1f3d57c6eb7dcec74312cd33e2d594e27b7b616aa83134042a41"
+      sha256 "447abf671f6a108e3d19b6e1df04763bfd5bebc9ee5f121b4d452f76beca2b27"
     end
     on_intel do
       url "https://github.com/smford/md/releases/download/v#{version}/md-v#{version}-linux-amd64.tar.gz"
-      sha256 "df28c9acf0713bbcf71c70a6415e635b336c069eff3aa68cdd1df881dc6230ab"
+      sha256 "16cf0ababcc1c674a968a1920e46f70a55310fb2ebe8916fdd307e4c2ad30bbb"
     end
   end
 
