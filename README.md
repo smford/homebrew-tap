@@ -189,4 +189,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-09-19 22:50:17 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-09-19 22:50:30 UTC`.</sub>
