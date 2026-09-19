@@ -5,21 +5,21 @@
 class MatrixRain < Formula
   desc "Authentic Matrix digital rain terminal simulator written in Go"
   homepage "https://smford.github.io/matrix-rain"
-  version "1.0.1"
+  version "1.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/smford/matrix-rain/releases/download/v1.0.1/matrix-rain_1.0.1_darwin_amd64.tar.gz"
-      sha256 "84a6ee61cb3b9396572c8cde5caf51189ce8c33f36506ad9c8ce6d534dbc6c0e"
+      url "https://github.com/smford/matrix-rain/releases/download/v1.1.0/matrix-rain_1.1.0_darwin_amd64.tar.gz"
+      sha256 "7ea9582ddad8079552cc240edf157fe7756df53578b039f50dc02892a45f2495"
 
       define_method(:install) do
         bin.install "matrix-rain"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/smford/matrix-rain/releases/download/v1.0.1/matrix-rain_1.0.1_darwin_arm64.tar.gz"
-      sha256 "c17cb8bdfb5ce2ce530667abe125c3aa01513739ea2b75d34d3fb681deac4fe4"
+      url "https://github.com/smford/matrix-rain/releases/download/v1.1.0/matrix-rain_1.1.0_darwin_arm64.tar.gz"
+      sha256 "d25368be0efc062263d2deefb13bf6ceddb1baee9b100658728736da474994b1"
 
       define_method(:install) do
         bin.install "matrix-rain"
@@ -29,15 +29,15 @@ class MatrixRain < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/smford/matrix-rain/releases/download/v1.0.1/matrix-rain_1.0.1_linux_amd64.tar.gz"
-      sha256 "44b7ff01a71375c4f3a12654ca2ffc55fb9ae0a9c96e0f1de6bb30d033912501"
+      url "https://github.com/smford/matrix-rain/releases/download/v1.1.0/matrix-rain_1.1.0_linux_amd64.tar.gz"
+      sha256 "d1396a6d07c64ea2a589093114b6b8ec080b5a1254bdd0c6c752839c02327b10"
       define_method(:install) do
         bin.install "matrix-rain"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/smford/matrix-rain/releases/download/v1.0.1/matrix-rain_1.0.1_linux_arm64.tar.gz"
-      sha256 "2dc0c2e18e100df50dea0d0234eb7edd312baf22d88536b5cbaa13be7cb0e288"
+      url "https://github.com/smford/matrix-rain/releases/download/v1.1.0/matrix-rain_1.1.0_linux_arm64.tar.gz"
+      sha256 "7d7592ff7d20ad87a830ca2a5ea419ce1b807198cd49f35927f5963a96a08f83"
       define_method(:install) do
         bin.install "matrix-rain"
       end
