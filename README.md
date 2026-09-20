@@ -2,7 +2,7 @@
 
 [![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml)
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/)
-![Formulas Count](https://img.shields.io/badge/formulas-5-10b981.svg)
+![Formulas Count](https://img.shields.io/badge/formulas-6-10b981.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -40,6 +40,7 @@ brew install smford/tap/<formula>
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
+| [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.0.0` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
 
 ---
 
@@ -199,6 +200,38 @@ brew upgrade mdee    # Upgrade to the latest version
 
 ---
 
+### `tf-blast`
+
+**Description:** Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu  
+**Homepage:** [https://github.com/smford/tf-blast](https://github.com/smford/tf-blast)  
+**Version:** `1.0.0`  
+**License:** `AGPL-3.0-or-later`  
+**Source:** [`Formula/tf-blast.rb`](Formula/tf-blast.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/tf-blast
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`tf-blast_1.0.0_darwin_arm64.tar.gz`](https://github.com/smford/tf-blast/releases/download/v1.0.0/tf-blast_1.0.0_darwin_arm64.tar.gz) | `1326ca2d0e27fedc...` |
+| macOS (Intel (x86_64)) | [`tf-blast_1.0.0_darwin_amd64.tar.gz`](https://github.com/smford/tf-blast/releases/download/v1.0.0/tf-blast_1.0.0_darwin_amd64.tar.gz) | `169e842386537bbf...` |
+| Linux (ARM64) | [`tf-blast_1.0.0_linux_arm64.tar.gz`](https://github.com/smford/tf-blast/releases/download/v1.0.0/tf-blast_1.0.0_linux_arm64.tar.gz) | `27fa3de99013d596...` |
+| Linux (x86_64) | [`tf-blast_1.0.0_linux_amd64.tar.gz`](https://github.com/smford/tf-blast/releases/download/v1.0.0/tf-blast_1.0.0_linux_amd64.tar.gz) | `6efbce4531a7b874...` |
+
+**Installed Binaries:** `tf-blast`  
+
+**Verification & Update:**
+```bash
+brew test tf-blast       # Run formula self-tests
+brew upgrade tf-blast    # Upgrade to the latest version
+```
+
+---
+
 ## 🛠 Maintenance & Tap Commands
 
 ```bash
@@ -222,4 +255,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-09-20 00:23:55 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-09-20 22:17:00 UTC`.</sub>
