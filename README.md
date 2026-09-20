@@ -2,7 +2,7 @@
 
 [![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml)
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/)
-![Formulas Count](https://img.shields.io/badge/formulas-4-10b981.svg)
+![Formulas Count](https://img.shields.io/badge/formulas-5-10b981.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -17,8 +17,8 @@ Add this tap once to Homebrew, then install any package directly by its formula 
 # Add this tap to your Homebrew installation
 brew tap smford/tap
 
-# Install a formula (e.g. delim)
-brew install delim
+# Install a formula (e.g. cidr-calculator)
+brew install cidr-calculator
 ```
 
 ### Method 2: Single command install
@@ -35,6 +35,7 @@ brew install smford/tap/<formula>
 
 | Formula | Description | Version | License | Platforms | Quick Install |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
@@ -43,6 +44,38 @@ brew install smford/tap/<formula>
 ---
 
 ## 🔍 Formula Details
+
+### `cidr-calculator`
+
+**Description:** Convert IP ranges into minimal CIDR blocks with subnet intelligence  
+**Homepage:** [https://github.com/smford/cidr-calculator](https://github.com/smford/cidr-calculator)  
+**Version:** `1.0.0`  
+**License:** `MIT`  
+**Source:** [`Formula/cidr-calculator.rb`](Formula/cidr-calculator.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/cidr-calculator
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`cidr-calculator_1.0.0_darwin_arm64.tar.gz`](https://github.com/smford/cidr-calculator/releases/download/v1.0.0/cidr-calculator_1.0.0_darwin_arm64.tar.gz) | `bd3e4eb490af0ee8...` |
+| macOS (Intel (x86_64)) | [`cidr-calculator_1.0.0_darwin_amd64.tar.gz`](https://github.com/smford/cidr-calculator/releases/download/v1.0.0/cidr-calculator_1.0.0_darwin_amd64.tar.gz) | `c101090c627014d8...` |
+| Linux (ARM64) | [`cidr-calculator_1.0.0_linux_arm64.tar.gz`](https://github.com/smford/cidr-calculator/releases/download/v1.0.0/cidr-calculator_1.0.0_linux_arm64.tar.gz) | `5ab414570c52ffbc...` |
+| Linux (x86_64) | [`cidr-calculator_1.0.0_linux_amd64.tar.gz`](https://github.com/smford/cidr-calculator/releases/download/v1.0.0/cidr-calculator_1.0.0_linux_amd64.tar.gz) | `6a4113163b27a0d7...` |
+
+**Installed Binaries:** `cidr-calculator`  
+
+**Verification & Update:**
+```bash
+brew test cidr-calculator       # Run formula self-tests
+brew upgrade cidr-calculator    # Upgrade to the latest version
+```
+
+---
 
 ### `delim`
 
@@ -189,4 +222,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-09-19 22:50:30 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-09-20 00:23:55 UTC`.</sub>
