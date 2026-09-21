@@ -5,28 +5,28 @@
 class TfBlast < Formula
   desc "Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu"
   homepage "https://github.com/smford/tf-blast"
-  version "1.0.0"
+  version "1.2.1"
   license "AGPL-3.0-or-later"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/tf-blast/releases/download/v#{version}/tf-blast_#{version}_darwin_arm64.tar.gz"
-      sha256 "1326ca2d0e27fedc6da8f6d8f0778b9566b7170d5c4553dc7d517b292628bb4d"
+      sha256 "22a34993a44148c81455fa34f8aeff44e43424ac5f53356e85f9096626ef3fe0"
     end
     on_intel do
       url "https://github.com/smford/tf-blast/releases/download/v#{version}/tf-blast_#{version}_darwin_amd64.tar.gz"
-      sha256 "169e842386537bbfa12309c91ce06b0ff5cf7fb31612cb64f6c74119a5c9de30"
+      sha256 "04d346fed756bf10aa3a4eb55ffa5f2074e368898403efc452d55b0bb0d6914d"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/tf-blast/releases/download/v#{version}/tf-blast_#{version}_linux_arm64.tar.gz"
-      sha256 "27fa3de99013d596f5ce76ceb3c28848ac06515abaa1566ad6e3ee427d08847f"
+      sha256 "22839550259ae50cac8cd31a26bc77aed633f514e27cc879ad52b0b8a32cccd3"
     end
     on_intel do
       url "https://github.com/smford/tf-blast/releases/download/v#{version}/tf-blast_#{version}_linux_amd64.tar.gz"
-      sha256 "6efbce4531a7b8746c70b307d2fef3fbbd6285d0063495b004eb34a9917f9697"
+      sha256 "da243d621aa4e489d5c845c4b9ec214e20d9b89c9919afe584eeaf8bf0fef0eb"
     end
   end
 
