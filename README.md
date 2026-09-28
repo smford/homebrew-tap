@@ -37,7 +37,7 @@ brew install smford/tap/<formula>
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
-| [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
+| [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
@@ -115,7 +115,7 @@ brew upgrade delim    # Upgrade to the latest version
 
 **Description:** SRE & developer reliability statistics for GitHub PRs and repositories  
 **Homepage:** [https://github.com/smford/gh-stats](https://github.com/smford/gh-stats)  
-**Version:** `0.11.0`  
+**Version:** `0.11.1`  
 **License:** `MIT`  
 **Source:** [`Formula/gh-stats.rb`](Formula/gh-stats.rb)  
 
@@ -128,10 +128,10 @@ brew install smford/tap/gh-stats
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`gh-stats_0.11.0_darwin_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.0/gh-stats_0.11.0_darwin_arm64.tar.gz) | `3b79e28b765cc6a4...` |
-| macOS (Intel (x86_64)) | [`gh-stats_0.11.0_darwin_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.0/gh-stats_0.11.0_darwin_amd64.tar.gz) | `2f23a4c02a8f3801...` |
-| Linux (ARM64) | [`gh-stats_0.11.0_linux_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.0/gh-stats_0.11.0_linux_arm64.tar.gz) | `fff5cb1aed9941ab...` |
-| Linux (x86_64) | [`gh-stats_0.11.0_linux_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.0/gh-stats_0.11.0_linux_amd64.tar.gz) | `48e8f01ef6e9652b...` |
+| macOS (Apple Silicon (ARM64)) | [`gh-stats_0.11.1_darwin_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.1/gh-stats_0.11.1_darwin_arm64.tar.gz) | `68ee0f843e023e49...` |
+| macOS (Intel (x86_64)) | [`gh-stats_0.11.1_darwin_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.1/gh-stats_0.11.1_darwin_amd64.tar.gz) | `87631cfea6404d4b...` |
+| Linux (ARM64) | [`gh-stats_0.11.1_linux_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.1/gh-stats_0.11.1_linux_arm64.tar.gz) | `8915eb8f0d5330c0...` |
+| Linux (x86_64) | [`gh-stats_0.11.1_linux_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.1/gh-stats_0.11.1_linux_amd64.tar.gz) | `a36d138e1f76576d...` |
 
 **Installed Binaries:** `gh-stats`  
 
@@ -288,4 +288,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-09-28 12:22:53 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-09-28 12:37:34 UTC`.</sub>
