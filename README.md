@@ -2,7 +2,7 @@
 
 [![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml)
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/)
-![Formulas Count](https://img.shields.io/badge/formulas-7-10b981.svg)
+![Formulas Count](https://img.shields.io/badge/formulas-8-10b981.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -17,8 +17,8 @@ Add this tap once to Homebrew, then install any package directly by its formula 
 # Add this tap to your Homebrew installation
 brew tap smford/tap
 
-# Install a formula (e.g. cidr-calculator)
-brew install cidr-calculator
+# Install a formula (e.g. cam-proxy)
+brew install cam-proxy
 ```
 
 ### Method 2: Single command install
@@ -35,6 +35,7 @@ brew install smford/tap/<formula>
 
 | Formula | Description | Version | License | Platforms | Quick Install |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
@@ -46,6 +47,38 @@ brew install smford/tap/<formula>
 ---
 
 ## 🔍 Formula Details
+
+### `cam-proxy`
+
+**Description:** Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events  
+**Homepage:** [https://github.com/smford/cam-proxy](https://github.com/smford/cam-proxy)  
+**Version:** `0.4.0`  
+**License:** `MIT`  
+**Source:** [`Formula/cam-proxy.rb`](Formula/cam-proxy.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/cam-proxy
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`cam-proxy_0.4.0_darwin_arm64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_darwin_arm64.tar.gz) | `bc9264298a81f55d...` |
+| macOS (Intel (x86_64)) | [`cam-proxy_0.4.0_darwin_amd64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_darwin_amd64.tar.gz) | `101868c1c42f9e10...` |
+| Linux (ARM64) | [`cam-proxy_0.4.0_linux_arm64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_linux_arm64.tar.gz) | `fc24be78bcfc806f...` |
+| Linux (x86_64) | [`cam-proxy_0.4.0_linux_amd64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_linux_amd64.tar.gz) | `71f77f4a98d4a655...` |
+
+**Installed Binaries:** `cam-proxy`  
+
+**Verification & Update:**
+```bash
+brew test cam-proxy       # Run formula self-tests
+brew upgrade cam-proxy    # Upgrade to the latest version
+```
+
+---
 
 ### `cidr-calculator`
 
@@ -288,4 +321,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-09-28 12:37:34 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-03 22:13:29 UTC`.</sub>
