@@ -38,7 +38,7 @@ brew install smford/tap/<formula>
 | [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
-| [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.2` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
+| [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
@@ -148,7 +148,7 @@ brew upgrade delim    # Upgrade to the latest version
 
 **Description:** SRE & developer reliability statistics for GitHub PRs and repositories  
 **Homepage:** [https://github.com/smford/gh-stats](https://github.com/smford/gh-stats)  
-**Version:** `0.11.2`  
+**Version:** `0.11.3`  
 **License:** `MIT`  
 **Source:** [`Formula/gh-stats.rb`](Formula/gh-stats.rb)  
 
@@ -161,10 +161,10 @@ brew install smford/tap/gh-stats
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`gh-stats_0.11.2_darwin_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.2/gh-stats_0.11.2_darwin_arm64.tar.gz) | `dcce30790f3514cc...` |
-| macOS (Intel (x86_64)) | [`gh-stats_0.11.2_darwin_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.2/gh-stats_0.11.2_darwin_amd64.tar.gz) | `a74092cfbcebf131...` |
-| Linux (ARM64) | [`gh-stats_0.11.2_linux_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.2/gh-stats_0.11.2_linux_arm64.tar.gz) | `39d212dc3bc9081e...` |
-| Linux (x86_64) | [`gh-stats_0.11.2_linux_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.2/gh-stats_0.11.2_linux_amd64.tar.gz) | `1be5e493ddfce1c9...` |
+| macOS (Apple Silicon (ARM64)) | [`gh-stats_0.11.3_darwin_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.3/gh-stats_0.11.3_darwin_arm64.tar.gz) | `800fba8b36b326ab...` |
+| macOS (Intel (x86_64)) | [`gh-stats_0.11.3_darwin_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.3/gh-stats_0.11.3_darwin_amd64.tar.gz) | `3d7659e5869a56fb...` |
+| Linux (ARM64) | [`gh-stats_0.11.3_linux_arm64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.3/gh-stats_0.11.3_linux_arm64.tar.gz) | `c1209760d64fdc24...` |
+| Linux (x86_64) | [`gh-stats_0.11.3_linux_amd64.tar.gz`](https://github.com/smford/gh-stats/releases/download/v0.11.3/gh-stats_0.11.3_linux_amd64.tar.gz) | `b7346f15c6ce6f0f...` |
 
 **Installed Binaries:** `gh-stats`  
 
@@ -321,4 +321,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-03 22:31:18 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-03 22:32:45 UTC`.</sub>
