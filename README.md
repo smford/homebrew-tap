@@ -2,7 +2,7 @@
 
 [![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml)
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/)
-![Formulas Count](https://img.shields.io/badge/formulas-8-10b981.svg)
+![Formulas Count](https://img.shields.io/badge/formulas-9-10b981.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -42,6 +42,7 @@ brew install smford/tap/<formula>
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
+| [`osx-traffic-stats`](#osx-traffic-stats) | Real-time macOS menu bar network traffic monitor | `1.0.1` | `MIT` | macOS (Apple Silicon & Intel) | `brew install smford/tap/osx-traffic-stats` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
 
 ---
@@ -266,6 +267,38 @@ brew upgrade mdee    # Upgrade to the latest version
 
 ---
 
+### `osx-traffic-stats`
+
+**Description:** Real-time macOS menu bar network traffic monitor  
+**Homepage:** [https://github.com/smford/osx-traffic-stats](https://github.com/smford/osx-traffic-stats)  
+**Version:** `1.0.1`  
+**License:** `MIT`  
+**Source:** [`Formula/osx-traffic-stats.rb`](Formula/osx-traffic-stats.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/osx-traffic-stats
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`osx-traffic-stats-v1.0.1-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.0.1/osx-traffic-stats-v1.0.1-darwin-universal.tar.gz) | `ca28159f81d2a76e...` |
+| macOS (Intel (x86_64)) | [`osx-traffic-stats-v1.0.1-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.0.1/osx-traffic-stats-v1.0.1-darwin-universal.tar.gz) | `ca28159f81d2a76e...` |
+
+**Installed Binaries:** `osx-traffic-stats`  
+
+**Dependencies:** `macos`  
+
+**Verification & Update:**
+```bash
+brew test osx-traffic-stats       # Run formula self-tests
+brew upgrade osx-traffic-stats    # Upgrade to the latest version
+```
+
+---
+
 ### `tf-blast`
 
 **Description:** Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu  
@@ -321,4 +354,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-03 22:32:45 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-04 11:50:50 UTC`.</sub>
