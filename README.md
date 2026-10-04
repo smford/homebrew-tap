@@ -42,7 +42,7 @@ brew install smford/tap/<formula>
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
-| [`osx-traffic-stats`](#osx-traffic-stats) | Real-time macOS menu bar network traffic monitor | `1.1.1` | `MIT` | macOS (Apple Silicon & Intel) | `brew install smford/tap/osx-traffic-stats` |
+| [`osx-traffic-stats`](#osx-traffic-stats) | Real-time macOS menu bar network traffic monitor | `1.2.0` | `MIT` | macOS (Apple Silicon & Intel) | `brew install smford/tap/osx-traffic-stats` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
 
 ---
@@ -271,7 +271,7 @@ brew upgrade mdee    # Upgrade to the latest version
 
 **Description:** Real-time macOS menu bar network traffic monitor  
 **Homepage:** [https://github.com/smford/osx-traffic-stats](https://github.com/smford/osx-traffic-stats)  
-**Version:** `1.1.1`  
+**Version:** `1.2.0`  
 **License:** `MIT`  
 **Source:** [`Formula/osx-traffic-stats.rb`](Formula/osx-traffic-stats.rb)  
 
@@ -284,8 +284,8 @@ brew install smford/tap/osx-traffic-stats
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`osx-traffic-stats-v1.1.1-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.1.1/osx-traffic-stats-v1.1.1-darwin-universal.tar.gz) | `3a9295fee5030020...` |
-| macOS (Intel (x86_64)) | [`osx-traffic-stats-v1.1.1-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.1.1/osx-traffic-stats-v1.1.1-darwin-universal.tar.gz) | `3a9295fee5030020...` |
+| macOS (Apple Silicon (ARM64)) | [`osx-traffic-stats-v1.2.0-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.2.0/osx-traffic-stats-v1.2.0-darwin-universal.tar.gz) | `a6594083deabdfd7...` |
+| macOS (Intel (x86_64)) | [`osx-traffic-stats-v1.2.0-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.2.0/osx-traffic-stats-v1.2.0-darwin-universal.tar.gz) | `a6594083deabdfd7...` |
 
 **Installed Binaries:** `osx-traffic-stats`  
 
@@ -354,4 +354,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-04 13:35:05 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-04 16:28:14 UTC`.</sub>
