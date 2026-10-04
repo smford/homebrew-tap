@@ -55,7 +55,7 @@ brew install --cask smford/tap/<cask>
 
 | Cask | Application | Description | Version | Quick Install |
 | :--- | :--- | :--- | :--- | :--- |
-| [`osx-traffic-stats`](#osx-traffic-stats) | OSX Traffic Stats | Real-time macOS menu bar network traffic monitor | `1.2.5` | `brew install --cask smford/tap/osx-traffic-stats` |
+| [`osx-traffic-stats`](#osx-traffic-stats) | OSX Traffic Stats | Real-time macOS menu bar network traffic monitor | `1.3.0` | `brew install --cask smford/tap/osx-traffic-stats` |
 
 ---
 
@@ -318,7 +318,7 @@ brew upgrade tf-blast    # Upgrade to the latest version
 **Application Name:** OSX Traffic Stats  
 **Description:** Real-time macOS menu bar network traffic monitor  
 **Homepage:** [https://github.com/smford/osx-traffic-stats](https://github.com/smford/osx-traffic-stats)  
-**Version:** `1.2.5`  
+**Version:** `1.3.0`  
 **Source:** [`Casks/osx-traffic-stats.rb`](Casks/osx-traffic-stats.rb)  
 
 **Install:**
@@ -332,7 +332,7 @@ brew install --cask smford/tap/osx-traffic-stats
 
 | Platform | Download Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS | [`OSXTrafficStats-v1.2.5-macOS.zip`](https://github.com/smford/osx-traffic-stats/releases/download/v1.2.5/OSXTrafficStats-v1.2.5-macOS.zip) | `90fa6523a4d66704...` |
+| macOS | [`OSXTrafficStats-v1.3.0-macOS.zip`](https://github.com/smford/osx-traffic-stats/releases/download/v1.3.0/OSXTrafficStats-v1.3.0-macOS.zip) | `86708bc9d814a227...` |
 
 **Configuration & Data Cleanup (Zap):** `~/Library/Application Support/com.smford.osx-traffic-stats`, `~/Library/LaunchAgents/com.smford.osx-traffic-stats.plist`  
 
@@ -369,4 +369,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-04 18:38:28 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-04 18:49:20 UTC`.</sub>
