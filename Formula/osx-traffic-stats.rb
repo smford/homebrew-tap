@@ -5,18 +5,18 @@
 class OsxTrafficStats < Formula
   desc "Real-time macOS menu bar network traffic monitor"
   homepage "https://github.com/smford/osx-traffic-stats"
-  version "1.2.0"
+  version "1.2.1"
   license "MIT"
   depends_on :macos
 
   on_macos do
     on_arm do
       url "https://github.com/smford/osx-traffic-stats/releases/download/v#{version}/osx-traffic-stats-v#{version}-darwin-universal.tar.gz"
-      sha256 "a6594083deabdfd7739904577dac316860fc06d77ddb7400e0010954b665ffaa"
+      sha256 "98ffc20d0c670a17dd22f4943526fc30a9812cf9ad611250fa0fa623c37b5924"
     end
     on_intel do
       url "https://github.com/smford/osx-traffic-stats/releases/download/v#{version}/osx-traffic-stats-v#{version}-darwin-universal.tar.gz"
-      sha256 "a6594083deabdfd7739904577dac316860fc06d77ddb7400e0010954b665ffaa"
+      sha256 "98ffc20d0c670a17dd22f4943526fc30a9812cf9ad611250fa0fa623c37b5924"
     end
   end
 
