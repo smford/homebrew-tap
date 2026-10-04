@@ -3,7 +3,7 @@
 generate_docs.py
 
 Production-grade metadata extractor and documentation generator for Homebrew taps.
-Extracts formula definitions from `Formula/*.rb` to produce:
+Extracts definitions from `Formula/*.rb` and `Casks/*.rb` to produce:
 1. An informative, well-structured README.md
 2. A modern, responsive, accessible GitHub Pages site in `_site/index.html`
 """
@@ -48,6 +48,30 @@ class Formula:
 
     def install_command_full(self, tap: str) -> str:
         return f"brew install {tap}/{self.name}"
+
+
+@dataclass
+class Cask:
+    token: str
+    name: str
+    desc: str
+    homepage: str
+    version: str
+    sha256: str
+    url: str
+    app: str
+    artifacts: List[Artifact] = field(default_factory=list)
+    zap_trash: List[str] = field(default_factory=list)
+    dependencies: List[str] = field(default_factory=list)
+    caveats: Optional[str] = None
+    file_path: str = ""
+
+    @property
+    def install_command_tap(self) -> str:
+        return f"brew install --cask {self.token}"
+
+    def install_command_full(self, tap: str) -> str:
+        return f"brew install --cask {tap}/{self.token}"
 
 
 class FormulaParser:
@@ -195,6 +219,88 @@ class FormulaParser:
         )
 
 
+class CaskParser:
+    """Parses Ruby-based Homebrew cask files."""
+
+    @classmethod
+    def parse_file(cls, path: Path) -> Optional[Cask]:
+        try:
+            content = path.read_text(encoding="utf-8")
+        except Exception as e:
+            print(f"Error reading {path}: {e}", file=sys.stderr)
+            return None
+
+        token = path.stem
+        cask_match = re.search(r'cask\s+["\']([^"\']+)["\']\s+do', content)
+        if cask_match:
+            token = cask_match.group(1).strip()
+
+        # Extract version
+        ver_match = re.search(r'^\s*version\s+["\'](.*?)["\']\s*$', content, re.MULTILINE)
+        version = ver_match.group(1).strip() if ver_match else "latest"
+
+        # Extract sha256
+        sha_match = re.search(r'^\s*sha256\s+["\']([0-9a-fA-F]{64}|:no_check)["\']\s*$', content, re.MULTILINE)
+        sha256 = sha_match.group(1).strip() if sha_match else ""
+
+        # Extract url
+        url_match = re.search(r'^\s*url\s+["\'](.*?)["\']\s*$', content, re.MULTILINE)
+        raw_url = url_match.group(1).strip() if url_match else ""
+        url = raw_url.replace("#{version}", version)
+
+        # Extract app name
+        name_match = re.search(r'^\s*name\s+["\'](.*?)["\']\s*$', content, re.MULTILINE)
+        app_name = name_match.group(1).strip() if name_match else token
+
+        # Extract description
+        desc_match = re.search(r'^\s*desc\s+["\'](.*?)["\']\s*$', content, re.MULTILINE)
+        desc = desc_match.group(1).strip() if desc_match else ""
+
+        # Extract homepage
+        hp_match = re.search(r'^\s*homepage\s+["\'](.*?)["\']\s*$', content, re.MULTILINE)
+        homepage = hp_match.group(1).strip() if hp_match else ""
+
+        # Extract app bundle
+        app_match = re.search(r'^\s*app\s+["\'](.*?)["\']\s*$', content, re.MULTILINE)
+        app_bundle = app_match.group(1).strip() if app_match else f"{token}.app"
+
+        # Extract dependencies
+        dependencies = re.findall(r'depends_on\s+["\':]([a-zA-Z0-9_\-]+)', content)
+
+        # Extract zap trash paths
+        zap_trash = []
+        zap_match = re.search(r'zap\s+trash:\s*\[(.*?)\]', content, re.DOTALL)
+        if zap_match:
+            zap_trash = re.findall(r'["\']([^"\']+)["\']', zap_match.group(1))
+
+        # Extract caveats
+        caveats = None
+        caveats_match = re.search(r'caveats\s+do\s*\n(.*?)\n\s*end', content, re.DOTALL)
+        if caveats_match:
+            caveats_lines = [line.strip().strip('"').strip("'") for line in caveats_match.group(1).splitlines() if line.strip()]
+            caveats = "\n".join(caveats_lines)
+
+        artifacts = []
+        if url and sha256:
+            artifacts.append(Artifact(os_name="macOS", arch="Universal App Bundle", url=url, sha256=sha256))
+
+        return Cask(
+            token=token,
+            name=app_name,
+            desc=desc,
+            homepage=homepage,
+            version=version,
+            sha256=sha256,
+            url=url,
+            app=app_bundle,
+            artifacts=artifacts,
+            zap_trash=zap_trash,
+            dependencies=dependencies,
+            caveats=caveats,
+            file_path=str(path.as_posix()),
+        )
+
+
 def get_repo_info() -> tuple[str, str, str]:
     """Returns (owner, repo_name, tap_name)."""
     env_repo = os.environ.get("GITHUB_REPOSITORY")
@@ -226,18 +332,27 @@ class ReadmeGenerator:
     """Generates the README.md content."""
 
     @staticmethod
-    def generate(owner: str, repo: str, tap_name: str, formulas: List[Formula]) -> str:
+    def generate(owner: str, repo: str, tap_name: str, formulas: List[Formula], casks: List[Cask]) -> str:
         repo_url = f"https://github.com/{owner}/{repo}"
         pages_url = f"https://{owner}.github.io/{repo}/"
         badge_workflow = f"{repo_url}/actions/workflows/docs-and-pages.yml/badge.svg"
         workflow_url = f"{repo_url}/actions/workflows/docs-and-pages.yml"
 
-        lines = [
-            f"# {tap_name}",
-            "",
+        badges = [
             f"[![Documentation & Pages]({badge_workflow})]({workflow_url})",
             f"[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)]({pages_url})",
             f"![Formulas Count](https://img.shields.io/badge/formulas-{len(formulas)}-10b981.svg)",
+        ]
+        if casks:
+            badges.append(f"![Casks Count](https://img.shields.io/badge/casks-{len(casks)}-8b5cf6.svg)")
+
+        first_formula = formulas[0].name if formulas else "formula_name"
+        first_cask = casks[0].token if casks else "cask_name"
+
+        lines = [
+            f"# {tap_name}",
+            "",
+            " ".join(badges),
             "",
             f"Official [Homebrew](https://brew.sh/) tap for [{owner}]({repo_url}).",
             f"Browse the interactive documentation and web catalog at **[{pages_url}]({pages_url})**.",
@@ -246,121 +361,221 @@ class ReadmeGenerator:
             "",
             "### Method 1: Tap repository (Recommended)",
             "",
-            "Add this tap once to Homebrew, then install any package directly by its formula name:",
+            "Add this tap once to Homebrew, then install any formula or cask directly:",
             "",
             "```bash",
             f"# Add this tap to your Homebrew installation",
             f"brew tap {tap_name}",
             "",
-            f"# Install a formula (e.g. {formulas[0].name if formulas else 'formula_name'})",
-            f"brew install {formulas[0].name if formulas else 'formula_name'}",
+            f"# Install a command-line formula (CLI tool)",
+            f"brew install {first_formula}",
+        ]
+
+        if casks:
+            lines.extend([
+                "",
+                f"# Install a cask (macOS GUI application)",
+                f"brew install --cask {first_cask}",
+            ])
+
+        lines.extend([
             "```",
             "",
             "### Method 2: Single command install",
             "",
-            "Install a formula without explicitly tapping the repository:",
+            "Install a formula or cask without explicitly tapping the repository:",
             "",
             "```bash",
+            f"# Install a formula",
             f"brew install {tap_name}/<formula>",
+        ])
+
+        if casks:
+            lines.extend([
+                "",
+                f"# Install a cask",
+                f"brew install --cask {tap_name}/<cask>",
+            ])
+
+        lines.extend([
             "```",
             "",
             "---",
             "",
-            "## 📋 Available Formulas",
-            "",
-            "| Formula | Description | Version | License | Platforms | Quick Install |",
-            "| :--- | :--- | :--- | :--- | :--- | :--- |",
-        ]
-
-        for f in formulas:
-            platforms_str = ", ".join(f.platforms)
-            lines.append(
-                f"| [`{f.name}`](#{f.name}) | {f.desc} | `{f.version}` | `{f.license}` | {platforms_str} | `brew install {tap_name}/{f.name}` |"
-            )
-
-        lines.extend([
-            "",
-            "---",
-            "",
-            "## 🔍 Formula Details",
-            "",
         ])
 
-        for f in formulas:
+        if formulas:
             lines.extend([
-                f"### `{f.name}`",
+                "## 📋 Available Formulas",
                 "",
-                f"**Description:** {f.desc}  ",
-                f"**Homepage:** [{f.homepage}]({f.homepage})  ",
-                f"**Version:** `{f.version}`  ",
-                f"**License:** `{f.license}`  ",
-                f"**Source:** [`Formula/{f.name}.rb`](Formula/{f.name}.rb)  ",
+                "| Formula | Description | Version | License | Platforms | Quick Install |",
+                "| :--- | :--- | :--- | :--- | :--- | :--- |",
+            ])
+            for f in formulas:
+                platforms_str = ", ".join(f.platforms)
+                lines.append(
+                    f"| [`{f.name}`](#{f.name}) | {f.desc} | `{f.version}` | `{f.license}` | {platforms_str} | `brew install {tap_name}/{f.name}` |"
+                )
+            lines.extend(["", "---", ""])
+
+        if casks:
+            lines.extend([
+                "## 📱 Available Casks",
                 "",
-                "**Install:**",
-                "```bash",
-                f"brew install {tap_name}/{f.name}",
-                "```",
-                "",
-                "**Supported Platforms & Packages:**",
+                "| Cask | Application | Description | Version | Quick Install |",
+                "| :--- | :--- | :--- | :--- | :--- |",
+            ])
+            for c in casks:
+                lines.append(
+                    f"| [`{c.token}`](#{c.token}) | {c.name} | {c.desc} | `{c.version}` | `brew install --cask {tap_name}/{c.token}` |"
+                )
+            lines.extend(["", "---", ""])
+
+        if formulas:
+            lines.extend([
+                "## 🔍 Formula Details",
                 "",
             ])
-
-            if f.artifacts:
+            for f in formulas:
                 lines.extend([
-                    "| OS / Architecture | Binary Package | SHA-256 Checksum |",
-                    "| :--- | :--- | :--- |",
-                ])
-                for a in f.artifacts:
-                    filename = a.url.split("/")[-1]
-                    lines.append(f"| {a.os_name} ({a.arch}) | [`{filename}`]({a.url}) | `{a.sha256[:16]}...` |")
-                lines.append("")
-            else:
-                for p in f.platforms:
-                    lines.append(f"- {p}")
-                lines.append("")
-
-            if f.binaries:
-                bin_str = ", ".join(f"`{b}`" for b in f.binaries)
-                lines.append(f"**Installed Binaries:** {bin_str}  ")
-                lines.append("")
-
-            if f.dependencies:
-                dep_str = ", ".join(f"`{d}`" for d in f.dependencies)
-                lines.append(f"**Dependencies:** {dep_str}  ")
-                lines.append("")
-
-            if f.caveats:
-                lines.extend([
-                    "**Caveats:**",
-                    "```text",
-                    f.caveats,
+                    f"### `{f.name}`",
+                    "",
+                    f"**Description:** {f.desc}  ",
+                    f"**Homepage:** [{f.homepage}]({f.homepage})  ",
+                    f"**Version:** `{f.version}`  ",
+                    f"**License:** `{f.license}`  ",
+                    f"**Source:** [`Formula/{f.name}.rb`](Formula/{f.name}.rb)  ",
+                    "",
+                    "**Install:**",
+                    "```bash",
+                    f"brew install {tap_name}/{f.name}",
                     "```",
+                    "",
+                    "**Supported Platforms & Packages:**",
                     "",
                 ])
 
+                if f.artifacts:
+                    lines.extend([
+                        "| OS / Architecture | Binary Package | SHA-256 Checksum |",
+                        "| :--- | :--- | :--- |",
+                    ])
+                    for a in f.artifacts:
+                        filename = a.url.split("/")[-1]
+                        lines.append(f"| {a.os_name} ({a.arch}) | [`{filename}`]({a.url}) | `{a.sha256[:16]}...` |")
+                    lines.append("")
+                else:
+                    for p in f.platforms:
+                        lines.append(f"- {p}")
+                    lines.append("")
+
+                if f.binaries:
+                    bin_str = ", ".join(f"`{b}`" for b in f.binaries)
+                    lines.append(f"**Installed Binaries:** {bin_str}  ")
+                    lines.append("")
+
+                if f.dependencies:
+                    dep_str = ", ".join(f"`{d}`" for d in f.dependencies)
+                    lines.append(f"**Dependencies:** {dep_str}  ")
+                    lines.append("")
+
+                if f.caveats:
+                    lines.extend([
+                        "**Caveats:**",
+                        "```text",
+                        f"{f.caveats}",
+                        "```",
+                        "",
+                    ])
+
+                lines.extend([
+                    "**Verification & Update:**",
+                    "```bash",
+                    f"brew test {f.name}       # Run formula self-tests",
+                    f"brew upgrade {f.name}    # Upgrade to the latest version",
+                    "```",
+                    "",
+                    "---",
+                    "",
+                ])
+
+        if casks:
             lines.extend([
-                "**Verification & Update:**",
-                "```bash",
-                f"brew test {f.name}       # Run formula self-tests",
-                f"brew upgrade {f.name}    # Upgrade to the latest version",
-                "```",
-                "",
-                "---",
+                "## 🔍 Cask Details",
                 "",
             ])
+            for c in casks:
+                lines.extend([
+                    f"### `{c.token}`",
+                    "",
+                    f"**Application Name:** {c.name}  ",
+                    f"**Description:** {c.desc}  ",
+                    f"**Homepage:** [{c.homepage}]({c.homepage})  ",
+                    f"**Version:** `{c.version}`  ",
+                    f"**Source:** [`Casks/{c.token}.rb`](Casks/{c.token}.rb)  ",
+                    "",
+                    "**Install:**",
+                    "```bash",
+                    f"brew install --cask {tap_name}/{c.token}",
+                    "```",
+                    "",
+                    f"**Installed Application:** `{c.app}`  ",
+                    "",
+                ])
+
+                if c.artifacts:
+                    lines.extend([
+                        "**Download Artifacts & Checksums:**",
+                        "",
+                        "| Platform | Download Package | SHA-256 Checksum |",
+                        "| :--- | :--- | :--- |",
+                    ])
+                    for a in c.artifacts:
+                        filename = a.url.split("/")[-1]
+                        lines.append(f"| {a.os_name} | [`{filename}`]({a.url}) | `{a.sha256[:16]}...` |")
+                    lines.append("")
+
+                if c.zap_trash:
+                    zap_items = ", ".join(f"`{z}`" for z in c.zap_trash)
+                    lines.extend([
+                        f"**Configuration & Data Cleanup (Zap):** {zap_items}  ",
+                        "",
+                    ])
+
+                if c.caveats:
+                    lines.extend([
+                        "**Caveats:**",
+                        "```text",
+                        f"{c.caveats}",
+                        "```",
+                        "",
+                    ])
+
+                lines.extend([
+                    "**Verification & Update:**",
+                    "```bash",
+                    f"brew upgrade --cask {c.token}    # Upgrade to the latest version",
+                    f"brew uninstall --cask {c.token}  # Uninstall the application",
+                    "```",
+                    "",
+                    "---",
+                    "",
+                ])
 
         lines.extend([
             "## 🛠 Maintenance & Tap Commands",
             "",
             "```bash",
-            "# Update Homebrew formula definitions and check for upgrades",
+            "# Update Homebrew formula and cask definitions",
             "brew update",
             "",
             "# Upgrade all installed packages from this tap",
             "brew upgrade",
+            "brew upgrade --cask",
             "",
-            f"# Remove a package",
+            f"# Remove a formula or cask",
             f"brew uninstall <formula>",
+            f"brew uninstall --cask <cask>",
             "",
             f"# Untap this repository",
             f"brew untap {tap_name}",
@@ -368,7 +583,7 @@ class ReadmeGenerator:
             "",
             "## 🤖 Automated CI/CD",
             "",
-            f"This repository uses **GitHub Actions** to automatically update documentation whenever a formula in `Formula/*.rb` is modified:",
+            f"This repository uses **GitHub Actions** to automatically update documentation whenever definitions in `Formula/*.rb` or `Casks/*.rb` are modified:",
             "- Updates and formats `README.md`",
             f"- Builds and deploys the static GitHub Page to [{pages_url}]({pages_url})",
             "",
@@ -384,11 +599,14 @@ class HtmlGenerator:
     """Generates a modern, accessible, zero-dependency GitHub Pages site."""
 
     @staticmethod
-    def generate(owner: str, repo: str, tap_name: str, formulas: List[Formula]) -> str:
+    def generate(owner: str, repo: str, tap_name: str, formulas: List[Formula], casks: List[Cask]) -> str:
         repo_url = f"https://github.com/{owner}/{repo}"
         now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        total_packages = len(formulas) + len(casks)
 
         cards_html = []
+
+        # 1. Render Formula Cards
         for f in formulas:
             platforms_pills = "".join(
                 f'<span class="pill pill-platform">{html.escape(p)}</span>' for p in f.platforms
@@ -472,12 +690,10 @@ class HtmlGenerator:
 
             formula_source_url = f"{repo_url}/blob/main/Formula/{f.name}.rb"
             full_install = f"brew install {tap_name}/{f.name}"
-            short_install = f"brew install {f.name}"
-
-            search_keywords = f"{f.name} {f.desc} {f.version} {f.license} {' '.join(f.platforms)} {' '.join(f.binaries)}".lower()
+            search_keywords = f"formula {f.name} {f.desc} {f.version} {f.license} {' '.join(f.platforms)} {' '.join(f.binaries)}".lower()
 
             card = f"""
-            <article class="formula-card" data-keywords="{html.escape(search_keywords)}">
+            <article class="formula-card package-card" data-type="formula" data-keywords="{html.escape(search_keywords)}">
               <header class="card-header">
                 <div class="card-title-group">
                   <h3 class="formula-name">
@@ -485,6 +701,7 @@ class HtmlGenerator:
                       {html.escape(f.name)}
                     </a>
                   </h3>
+                  <span class="pill pill-type pill-type-formula">Formula</span>
                   <span class="pill pill-version">v{html.escape(f.version)}</span>
                   <span class="pill pill-license">{html.escape(f.license)}</span>
                 </div>
@@ -530,6 +747,140 @@ class HtmlGenerator:
             """
             cards_html.append(card)
 
+        # 2. Render Cask Cards
+        for c in casks:
+            cask_source_url = f"{repo_url}/blob/main/Casks/{c.token}.rb"
+            full_cask_install = f"brew install --cask {tap_name}/{c.token}"
+            cask_search_keywords = f"cask {c.token} {c.name} {c.desc} {c.version} macos {c.app} app gui".lower()
+
+            cask_artifacts_rows = ""
+            for a in c.artifacts:
+                filename = a.url.split("/")[-1]
+                cask_artifacts_rows += f"""
+                <tr>
+                  <td><strong>{html.escape(a.os_name)}</strong> <span class="text-muted">({html.escape(a.arch)})</span></td>
+                  <td><a href="{html.escape(a.url)}" class="link" target="_blank" rel="noopener">{html.escape(filename)}</a></td>
+                  <td>
+                    <div class="hash-row">
+                      <code class="hash-code" title="{html.escape(a.sha256)}">{html.escape(a.sha256[:14])}...</code>
+                      <button class="btn-copy-hash" data-copy="{html.escape(a.sha256)}" title="Copy full SHA-256 hash" aria-label="Copy full SHA-256 hash">
+                        <svg class="icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                """
+
+            cask_artifacts_table = ""
+            if cask_artifacts_rows:
+                cask_artifacts_table = f"""
+                <div class="card-section">
+                  <details class="accordion">
+                    <summary class="accordion-summary">
+                      <span>Download Artifact & Checksum</span>
+                      <svg class="accordion-chevron" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0Z"></path></svg>
+                    </summary>
+                    <div class="accordion-content">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Platform</th>
+                              <th>Archive</th>
+                              <th>SHA-256</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {cask_artifacts_rows}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                """
+
+            cask_caveats_html = ""
+            if c.caveats:
+                cask_caveats_html = f"""
+                <div class="card-section caveats-box">
+                  <div class="section-title">⚠️ Caveats</div>
+                  <pre class="code-block"><code>{html.escape(c.caveats)}</code></pre>
+                </div>
+                """
+
+            zap_html = ""
+            if c.zap_trash:
+                zap_pills = "".join(f'<code class="inline-code">{html.escape(z)}</code>' for z in c.zap_trash)
+                zap_html = f"""
+                <div class="card-meta-item">
+                  <span class="meta-label">Data Cleanup (Zap):</span>
+                  <div class="pills-container">{zap_pills}</div>
+                </div>
+                """
+
+            cask_card = f"""
+            <article class="formula-card package-card" data-type="cask" data-keywords="{html.escape(cask_search_keywords)}">
+              <header class="card-header">
+                <div class="card-title-group">
+                  <h3 class="formula-name">
+                    <a href="{html.escape(c.homepage)}" target="_blank" rel="noopener" class="formula-title-link">
+                      {html.escape(c.token)}
+                    </a>
+                  </h3>
+                  <span class="pill pill-type pill-type-cask">Cask</span>
+                  <span class="pill pill-version">v{html.escape(c.version)}</span>
+                  <span class="pill pill-app-title">{html.escape(c.name)}</span>
+                </div>
+                <div class="card-links">
+                  <a href="{html.escape(cask_source_url)}" class="card-action-link" target="_blank" rel="noopener" title="View Cask Source on GitHub">
+                    <svg class="icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                    <span>Cask</span>
+                  </a>
+                  <a href="{html.escape(c.homepage)}" class="card-action-link" target="_blank" rel="noopener" title="Visit Project Homepage">
+                    <svg class="icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.75.75 0 0 1 .75.75v4.146a.75.75 0 0 1-1.28.53l-1.077-1.077-3.546 3.546a.75.75 0 0 1-1.06-1.06l3.546-3.546-1.077-1.077a.75.75 0 0 1 .53-1.28l-.942.016Z"></path></svg>
+                    <span>Homepage</span>
+                  </a>
+                </div>
+              </header>
+
+              <div class="card-body">
+                <p class="formula-desc">{html.escape(c.desc)}</p>
+
+                <div class="terminal-install">
+                  <div class="terminal-cmd">
+                    <span class="terminal-prompt">$</span>
+                    <span class="cmd-text">{html.escape(full_cask_install)}</span>
+                  </div>
+                  <button class="btn-copy-install" data-copy="{html.escape(full_cask_install)}" aria-label="Copy install command">
+                    <svg class="icon copy-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+                    <span class="copy-label">Copy</span>
+                  </button>
+                </div>
+
+                <div class="card-meta">
+                  <div class="card-meta-item">
+                    <span class="meta-label">Type:</span>
+                    <div class="pills-container">
+                      <span class="pill pill-platform">macOS GUI Application</span>
+                    </div>
+                  </div>
+                  <div class="card-meta-item">
+                    <span class="meta-label">Application:</span>
+                    <div class="pills-container">
+                      <code class="inline-code">{html.escape(c.app)}</code>
+                    </div>
+                  </div>
+                  {zap_html}
+                </div>
+
+                {cask_caveats_html}
+                {cask_artifacts_table}
+              </div>
+            </article>
+            """
+            cards_html.append(cask_card)
+
         all_cards_str = "\n".join(cards_html)
 
         html_template = f"""<!DOCTYPE html>
@@ -538,7 +889,7 @@ class HtmlGenerator:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Official Homebrew Tap for {html.escape(tap_name)} packages and developer utilities.">
+  <meta name="description" content="Official Homebrew Tap for {html.escape(tap_name)} formulas and macOS GUI casks.">
   <title>{html.escape(tap_name)} | Homebrew Tap Catalog</title>
 
   <!-- Prevent theme flicker / FOUC -->
@@ -797,6 +1148,51 @@ class HtmlGenerator:
       flex-wrap: wrap;
     }}
 
+    .filter-tabs {{
+      display: inline-flex;
+      background-color: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }}
+
+    .filter-tab {{
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }}
+    .filter-tab:hover {{
+      color: var(--text-main);
+    }}
+    .filter-tab.active {{
+      background-color: var(--bg-surface);
+      color: var(--brand);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }}
+
+    .tab-count {{
+      font-size: 0.75rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+      background: var(--border-color);
+      color: var(--text-muted);
+      font-weight: 500;
+    }}
+    .filter-tab.active .tab-count {{
+      background: rgba(37, 99, 235, 0.15);
+      color: var(--brand);
+    }}
+
     .search-box {{
       position: relative;
       flex: 1;
@@ -834,7 +1230,7 @@ class HtmlGenerator:
       font-weight: 500;
     }}
 
-    /* Formula Cards */
+    /* Formula & Cask Cards */
     .formula-grid {{
       display: grid;
       grid-template-columns: 1fr;
@@ -892,8 +1288,22 @@ class HtmlGenerator:
       font-weight: 600;
       line-height: 1;
     }}
-    .pill-version {{
+    .pill-type-formula {{
       background: rgba(37, 99, 235, 0.1);
+      color: var(--brand);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+    }}
+    .pill-type-cask {{
+      background: rgba(139, 92, 246, 0.12);
+      color: #7c3aed;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+    }}
+    :root[data-theme="dark"] .pill-type-cask {{
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.18);
+    }}
+    .pill-version {{
+      background: rgba(37, 99, 235, 0.08);
       color: var(--brand);
       border: 1px solid rgba(37, 99, 235, 0.2);
     }}
@@ -903,6 +1313,12 @@ class HtmlGenerator:
       border: 1px solid var(--border-color);
     }}
     .pill-platform {{
+      background: var(--bg-surface-alt);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      font-size: 0.75rem;
+    }}
+    .pill-app-title {{
       background: var(--bg-surface-alt);
       color: var(--text-muted);
       border: 1px solid var(--border-color);
@@ -951,8 +1367,8 @@ class HtmlGenerator:
       border-radius: var(--radius-md);
       padding: 0.75rem 1rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
       margin-bottom: 1.25rem;
     }}
@@ -962,72 +1378,78 @@ class HtmlGenerator:
       align-items: center;
       gap: 0.6rem;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       color: var(--code-text);
       overflow-x: auto;
+      white-space: nowrap;
     }}
 
     .terminal-prompt {{
-      color: #10b981;
+      color: var(--brand);
       font-weight: 700;
       user-select: none;
+    }}
+
+    .cmd-text {{
+      color: #e2e8f0;
     }}
 
     .btn-copy-install {{
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #ffffff;
       padding: 0.35rem 0.65rem;
       border-radius: var(--radius-sm);
-      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.775rem;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
-      white-space: nowrap;
+      flex-shrink: 0;
     }}
     .btn-copy-install:hover {{
       background: rgba(255, 255, 255, 0.2);
     }}
 
-    /* Card Meta */
+    /* Metadata details */
     .card-meta {{
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.65rem;
       margin-bottom: 1.25rem;
+      font-size: 0.875rem;
     }}
 
     .card-meta-item {{
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      align-items: flex-start;
+      gap: 0.65rem;
       flex-wrap: wrap;
     }}
 
     .meta-label {{
-      font-size: 0.825rem;
-      font-weight: 600;
       color: var(--text-muted);
+      font-weight: 600;
       min-width: 90px;
     }}
 
     .pills-container {{
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
     }}
 
     .inline-code {{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.825rem;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 0.8rem;
       background: var(--bg-surface-alt);
       border: 1px solid var(--border-color);
       padding: 0.15rem 0.4rem;
       border-radius: var(--radius-sm);
+      color: var(--text-main);
     }}
 
     /* Accordion */
@@ -1035,13 +1457,15 @@ class HtmlGenerator:
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       overflow: hidden;
-      background-color: var(--bg-surface-alt);
+      margin-top: 0.75rem;
     }}
 
     .accordion-summary {{
-      padding: 0.75rem 1rem;
-      font-size: 0.85rem;
+      padding: 0.65rem 1rem;
+      background-color: var(--bg-surface-alt);
+      font-size: 0.825rem;
       font-weight: 600;
+      color: var(--text-main);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -1219,9 +1643,9 @@ class HtmlGenerator:
 
   <main class="container">
     <section class="hero">
-      <div class="hero-badge">Homebrew Package Tap</div>
+      <div class="hero-badge">Homebrew Tap Catalog</div>
       <h1 class="hero-title">{html.escape(tap_name)}</h1>
-      <p class="hero-subtitle">Official Homebrew tap repository providing custom tools, utilities, and applications.</p>
+      <p class="hero-subtitle">Official Homebrew tap repository providing custom tools, utilities, formulas, and macOS GUI applications.</p>
 
       <div class="tap-install-banner">
         <div class="tap-command-group">
@@ -1236,20 +1660,32 @@ class HtmlGenerator:
     </section>
 
     <div class="controls-bar">
+      <div class="filter-tabs" role="tablist" aria-label="Filter packages">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+          All <span class="tab-count">{total_packages}</span>
+        </button>
+        <button class="filter-tab" data-filter="formula" role="tab" aria-selected="false">
+          Formulas <span class="tab-count">{len(formulas)}</span>
+        </button>
+        <button class="filter-tab" data-filter="cask" role="tab" aria-selected="false">
+          Casks <span class="tab-count">{len(casks)}</span>
+        </button>
+      </div>
+
       <div class="search-box">
         <svg class="search-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path></svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Filter formulas by name, description, license..." autocomplete="off">
+        <input type="text" id="searchInput" class="search-input" placeholder="Filter packages by name, description, license, app..." autocomplete="off">
       </div>
-      <div id="countIndicator" class="count-indicator">Showing {len(formulas)} of {len(formulas)} formulas</div>
+      <div id="countIndicator" class="count-indicator">Showing {total_packages} of {total_packages} packages</div>
     </div>
 
-    <section id="formulaGrid" class="formula-grid">
+    <section id="packageGrid" class="formula-grid">
       {all_cards_str}
     </section>
 
     <div id="noResults" class="no-results">
-      <div class="no-results-title">No matching formulas found</div>
-      <p class="text-muted">Try adjusting your search query or clear the filter.</p>
+      <div class="no-results-title">No matching packages found</div>
+      <p class="text-muted">Try adjusting your search query or switching category filters.</p>
     </div>
   </main>
 
@@ -1260,7 +1696,7 @@ class HtmlGenerator:
         <li><a href="https://brew.sh" target="_blank" rel="noopener">Homebrew Documentation</a></li>
         <li><a href="{html.escape(repo_url)}/issues" target="_blank" rel="noopener">Report Issue</a></li>
       </ul>
-      <p>Tap updated automatically on every commit to <code>Formula/*.rb</code> via GitHub Actions.</p>
+      <p>Tap updated automatically on every commit to <code>Formula/*.rb</code> or <code>Casks/*.rb</code> via GitHub Actions.</p>
       <p>Last generated: <code>{now_str}</code></p>
     </div>
   </footer>
@@ -1318,20 +1754,27 @@ class HtmlGenerator:
       }});
     }});
 
-    // Instant Search & Filter
+    // Tab Filter & Instant Search
     const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.formula-card');
+    const cards = document.querySelectorAll('.package-card');
+    const filterTabs = document.querySelectorAll('.filter-tab');
     const countIndicator = document.getElementById('countIndicator');
     const noResults = document.getElementById('noResults');
     const totalCount = cards.length;
+    let activeFilter = 'all';
 
-    searchInput.addEventListener('input', (e) => {{
-      const query = e.target.value.trim().toLowerCase();
+    function updateFilter() {{
+      const query = (searchInput.value || '').trim().toLowerCase();
       let visible = 0;
 
       cards.forEach(card => {{
+        const cardType = card.getAttribute('data-type') || '';
         const keywords = card.getAttribute('data-keywords') || '';
-        if (keywords.includes(query)) {{
+
+        const matchesType = activeFilter === 'all' || cardType === activeFilter;
+        const matchesSearch = !query || keywords.includes(query);
+
+        if (matchesType && matchesSearch) {{
           card.style.display = '';
           visible++;
         }} else {{
@@ -1339,11 +1782,30 @@ class HtmlGenerator:
         }}
       }});
 
-      countIndicator.textContent = `Showing ${{visible}} of ${{totalCount}} ${{totalCount === 1 ? 'formula' : 'formulas'}}`;
+      let typeName = 'packages';
+      if (activeFilter === 'formula') typeName = visible === 1 ? 'formula' : 'formulas';
+      if (activeFilter === 'cask') typeName = visible === 1 ? 'cask' : 'casks';
+
+      countIndicator.textContent = `Showing ${{visible}} of ${{totalCount}} ${{typeName}}`;
       noResults.style.display = visible === 0 ? 'block' : 'none';
+    }}
+
+    filterTabs.forEach(tab => {{
+      tab.addEventListener('click', () => {{
+        filterTabs.forEach(t => {{
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        }});
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        activeFilter = tab.getAttribute('data-filter') || 'all';
+        updateFilter();
+      }});
     }});
 
-    // Modern 2-state Theme Switcher conforming to modern-web-guidance
+    searchInput.addEventListener('input', updateFilter);
+
+    // Modern Theme Switcher
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const themeLabel = document.getElementById('themeLabel');
@@ -1386,37 +1848,40 @@ class HtmlGenerator:
 def main():
     root_dir = Path(__file__).resolve().parent.parent
     formula_dir = root_dir / "Formula"
+    cask_dir = root_dir / "Casks"
     site_dir = root_dir / "_site"
     readme_path = root_dir / "README.md"
 
-    if not formula_dir.exists():
-        print(f"Error: {formula_dir} does not exist", file=sys.stderr)
-        sys.exit(1)
-
-    formula_files = sorted(list(formula_dir.glob("*.rb")))
-    if not formula_files:
-        print(f"Warning: No *.rb files found in {formula_dir}", file=sys.stderr)
-
     formulas: List[Formula] = []
-    for fpath in formula_files:
-        parsed = FormulaParser.parse_file(fpath)
-        if parsed:
-            formulas.append(parsed)
-            print(f"✔ Successfully parsed {fpath.name} (v{parsed.version})")
+    if formula_dir.exists():
+        formula_files = sorted(list(formula_dir.glob("*.rb")))
+        for fpath in formula_files:
+            parsed = FormulaParser.parse_file(fpath)
+            if parsed:
+                formulas.append(parsed)
+                print(f"✔ Successfully parsed formula {fpath.name} (v{parsed.version})")
+
+    casks: List[Cask] = []
+    if cask_dir.exists():
+        cask_files = sorted(list(cask_dir.glob("*.rb")))
+        for cpath in cask_files:
+            parsed = CaskParser.parse_file(cpath)
+            if parsed:
+                casks.append(parsed)
+                print(f"✔ Successfully parsed cask {cpath.name} (v{parsed.version})")
 
     owner, repo, tap_name = get_repo_info()
     print(f"Repository: {owner}/{repo} (Tap: {tap_name})")
 
     # Generate README.md
-    readme_content = ReadmeGenerator.generate(owner, repo, tap_name, formulas)
+    readme_content = ReadmeGenerator.generate(owner, repo, tap_name, formulas, casks)
     readme_path.write_text(readme_content, encoding="utf-8")
-    print(f"✔ Generated {readme_path} ({len(formulas)} formulas documented)")
+    print(f"✔ Generated {readme_path} ({len(formulas)} formulas, {len(casks)} casks documented)")
 
     # Generate _site/index.html
     site_dir.mkdir(parents=True, exist_ok=True)
-    html_content = HtmlGenerator.generate(owner, repo, tap_name, formulas)
+    html_content = HtmlGenerator.generate(owner, repo, tap_name, formulas, casks)
     (site_dir / "index.html").write_text(html_content, encoding="utf-8")
-    # Also write .nojekyll so GitHub Pages does not run Jekyll processing
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
     print(f"✔ Generated {site_dir / 'index.html'} and {site_dir / '.nojekyll'}")
 

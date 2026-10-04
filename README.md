@@ -1,8 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml)
-[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/)
-![Formulas Count](https://img.shields.io/badge/formulas-9-10b981.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-8-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -11,22 +9,29 @@ Browse the interactive documentation and web catalog at **[https://smford.github
 
 ### Method 1: Tap repository (Recommended)
 
-Add this tap once to Homebrew, then install any package directly by its formula name:
+Add this tap once to Homebrew, then install any formula or cask directly:
 
 ```bash
 # Add this tap to your Homebrew installation
 brew tap smford/tap
 
-# Install a formula (e.g. cam-proxy)
+# Install a command-line formula (CLI tool)
 brew install cam-proxy
+
+# Install a cask (macOS GUI application)
+brew install --cask osx-traffic-stats
 ```
 
 ### Method 2: Single command install
 
-Install a formula without explicitly tapping the repository:
+Install a formula or cask without explicitly tapping the repository:
 
 ```bash
+# Install a formula
 brew install smford/tap/<formula>
+
+# Install a cask
+brew install --cask smford/tap/<cask>
 ```
 
 ---
@@ -42,8 +47,15 @@ brew install smford/tap/<formula>
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
-| [`osx-traffic-stats`](#osx-traffic-stats) | Real-time macOS menu bar network traffic monitor | `1.2.3` | `MIT` | macOS (Apple Silicon & Intel) | `brew install smford/tap/osx-traffic-stats` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
+
+---
+
+## 📱 Available Casks
+
+| Cask | Application | Description | Version | Quick Install |
+| :--- | :--- | :--- | :--- | :--- |
+| [`osx-traffic-stats`](#osx-traffic-stats) | OSX Traffic Stats | Real-time macOS menu bar network traffic monitor | `1.2.3` | `brew install --cask smford/tap/osx-traffic-stats` |
 
 ---
 
@@ -267,38 +279,6 @@ brew upgrade mdee    # Upgrade to the latest version
 
 ---
 
-### `osx-traffic-stats`
-
-**Description:** Real-time macOS menu bar network traffic monitor  
-**Homepage:** [https://github.com/smford/osx-traffic-stats](https://github.com/smford/osx-traffic-stats)  
-**Version:** `1.2.3`  
-**License:** `MIT`  
-**Source:** [`Formula/osx-traffic-stats.rb`](Formula/osx-traffic-stats.rb)  
-
-**Install:**
-```bash
-brew install smford/tap/osx-traffic-stats
-```
-
-**Supported Platforms & Packages:**
-
-| OS / Architecture | Binary Package | SHA-256 Checksum |
-| :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`osx-traffic-stats-v1.2.3-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.2.3/osx-traffic-stats-v1.2.3-darwin-universal.tar.gz) | `51aad95e00b8e6ba...` |
-| macOS (Intel (x86_64)) | [`osx-traffic-stats-v1.2.3-darwin-universal.tar.gz`](https://github.com/smford/osx-traffic-stats/releases/download/v1.2.3/osx-traffic-stats-v1.2.3-darwin-universal.tar.gz) | `51aad95e00b8e6ba...` |
-
-**Installed Binaries:** `osx-traffic-stats`  
-
-**Dependencies:** `macos`  
-
-**Verification & Update:**
-```bash
-brew test osx-traffic-stats       # Run formula self-tests
-brew upgrade osx-traffic-stats    # Upgrade to the latest version
-```
-
----
-
 ### `tf-blast`
 
 **Description:** Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu  
@@ -331,17 +311,52 @@ brew upgrade tf-blast    # Upgrade to the latest version
 
 ---
 
+## 🔍 Cask Details
+
+### `osx-traffic-stats`
+
+**Application Name:** OSX Traffic Stats  
+**Description:** Real-time macOS menu bar network traffic monitor  
+**Homepage:** [https://github.com/smford/osx-traffic-stats](https://github.com/smford/osx-traffic-stats)  
+**Version:** `1.2.3`  
+**Source:** [`Casks/osx-traffic-stats.rb`](Casks/osx-traffic-stats.rb)  
+
+**Install:**
+```bash
+brew install --cask smford/tap/osx-traffic-stats
+```
+
+**Installed Application:** `OSXTrafficStats.app`  
+
+**Download Artifacts & Checksums:**
+
+| Platform | Download Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS | [`OSXTrafficStats-v1.2.3-macOS.zip`](https://github.com/smford/osx-traffic-stats/releases/download/v1.2.3/OSXTrafficStats-v1.2.3-macOS.zip) | `0d94a2781e66c431...` |
+
+**Configuration & Data Cleanup (Zap):** `~/Library/Application Support/com.smford.osx-traffic-stats`, `~/Library/LaunchAgents/com.smford.osx-traffic-stats.plist`  
+
+**Verification & Update:**
+```bash
+brew upgrade --cask osx-traffic-stats    # Upgrade to the latest version
+brew uninstall --cask osx-traffic-stats  # Uninstall the application
+```
+
+---
+
 ## 🛠 Maintenance & Tap Commands
 
 ```bash
-# Update Homebrew formula definitions and check for upgrades
+# Update Homebrew formula and cask definitions
 brew update
 
 # Upgrade all installed packages from this tap
 brew upgrade
+brew upgrade --cask
 
-# Remove a package
+# Remove a formula or cask
 brew uninstall <formula>
+brew uninstall --cask <cask>
 
 # Untap this repository
 brew untap smford/tap
@@ -349,9 +364,9 @@ brew untap smford/tap
 
 ## 🤖 Automated CI/CD
 
-This repository uses **GitHub Actions** to automatically update documentation whenever a formula in `Formula/*.rb` is modified:
+This repository uses **GitHub Actions** to automatically update documentation whenever definitions in `Formula/*.rb` or `Casks/*.rb` are modified:
 - Updates and formats `README.md`
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-04 16:51:51 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-04 17:03:56 UTC`.</sub>
