@@ -1,6 +1,6 @@
 cask "osx-traffic-stats" do
-  version "1.2.5"
-  sha256 "90fa6523a4d66704f63d1a854de81801fbd11cfe776523809bea8d21362da7fb"
+  version "1.3.0"
+  sha256 "86708bc9d814a227b01fe05e65b1f5c6cb53ce328f1cb63d5d6babb50331f261"
 
   url "https://github.com/smford/osx-traffic-stats/releases/download/v#{version}/OSXTrafficStats-v#{version}-macOS.zip"
   name "OSX Traffic Stats"
