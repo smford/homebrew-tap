@@ -5,28 +5,28 @@
 class CamProxy < Formula
   desc "Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events"
   homepage "https://github.com/smford/cam-proxy"
-  version "0.4.0"
+  version "0.4.1"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/cam-proxy/releases/download/v#{version}/cam-proxy_#{version}_darwin_arm64.tar.gz"
-      sha256 "bc9264298a81f55d5cac3e7abfbf2c61b2731d711c2ea74ec641ce6efa147a54"
+      sha256 "c110871f65791f7f0d1e81cfc2ecadc81c7d355f790a98ce567afbfd09c9cb61"
     end
     on_intel do
       url "https://github.com/smford/cam-proxy/releases/download/v#{version}/cam-proxy_#{version}_darwin_amd64.tar.gz"
-      sha256 "101868c1c42f9e10c28c6c7215fa7b1e88af445043b87fc7e9e2ce5fafc61921"
+      sha256 "9ab7fb2ebe0c8d8c7381e323df8628a3312241637dcc5059f0253ba029187797"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/cam-proxy/releases/download/v#{version}/cam-proxy_#{version}_linux_arm64.tar.gz"
-      sha256 "fc24be78bcfc806f73e77f76539e4d988840f1abaac60d9db9afaf95c23c9248"
+      sha256 "ebdf9e8120d46b1eb851272687cd84795bde9d4222018c7052f1591760b536bc"
     end
     on_intel do
       url "https://github.com/smford/cam-proxy/releases/download/v#{version}/cam-proxy_#{version}_linux_amd64.tar.gz"
-      sha256 "71f77f4a98d4a6553ba4aa873a851d3c75aaa83eaa17eae9790498a15d806ee5"
+      sha256 "911d5116c7eec2f86c7cb9c2f9d23f7557fb80a89f8892d6a308c70532abab24"
     end
   end
 
