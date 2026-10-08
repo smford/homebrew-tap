@@ -40,7 +40,7 @@ brew install --cask smford/tap/<cask>
 
 | Formula | Description | Version | License | Platforms | Quick Install |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
+| [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
@@ -65,7 +65,7 @@ brew install --cask smford/tap/<cask>
 
 **Description:** Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events  
 **Homepage:** [https://github.com/smford/cam-proxy](https://github.com/smford/cam-proxy)  
-**Version:** `0.4.0`  
+**Version:** `0.4.1`  
 **License:** `MIT`  
 **Source:** [`Formula/cam-proxy.rb`](Formula/cam-proxy.rb)  
 
@@ -78,10 +78,10 @@ brew install smford/tap/cam-proxy
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`cam-proxy_0.4.0_darwin_arm64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_darwin_arm64.tar.gz) | `bc9264298a81f55d...` |
-| macOS (Intel (x86_64)) | [`cam-proxy_0.4.0_darwin_amd64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_darwin_amd64.tar.gz) | `101868c1c42f9e10...` |
-| Linux (ARM64) | [`cam-proxy_0.4.0_linux_arm64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_linux_arm64.tar.gz) | `fc24be78bcfc806f...` |
-| Linux (x86_64) | [`cam-proxy_0.4.0_linux_amd64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.0/cam-proxy_0.4.0_linux_amd64.tar.gz) | `71f77f4a98d4a655...` |
+| macOS (Apple Silicon (ARM64)) | [`cam-proxy_0.4.1_darwin_arm64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.1/cam-proxy_0.4.1_darwin_arm64.tar.gz) | `c110871f65791f7f...` |
+| macOS (Intel (x86_64)) | [`cam-proxy_0.4.1_darwin_amd64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.1/cam-proxy_0.4.1_darwin_amd64.tar.gz) | `9ab7fb2ebe0c8d8c...` |
+| Linux (ARM64) | [`cam-proxy_0.4.1_linux_arm64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.1/cam-proxy_0.4.1_linux_arm64.tar.gz) | `ebdf9e8120d46b1e...` |
+| Linux (x86_64) | [`cam-proxy_0.4.1_linux_amd64.tar.gz`](https://github.com/smford/cam-proxy/releases/download/v0.4.1/cam-proxy_0.4.1_linux_amd64.tar.gz) | `911d5116c7eec2f8...` |
 
 **Installed Binaries:** `cam-proxy`  
 
@@ -369,4 +369,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-04 18:49:20 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-08 21:31:49 UTC`.</sub>
