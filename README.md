@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-8-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-9-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -48,6 +48,7 @@ brew install --cask smford/tap/<cask>
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
+| [`video-amplifier`](#video-amplifier) | High-performance streaming proxy for IP cameras with zero-transcode fan-out | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/video-amplifier` |
 
 ---
 
@@ -311,6 +312,38 @@ brew upgrade tf-blast    # Upgrade to the latest version
 
 ---
 
+### `video-amplifier`
+
+**Description:** High-performance streaming proxy for IP cameras with zero-transcode fan-out  
+**Homepage:** [https://github.com/smford/video-amplifier](https://github.com/smford/video-amplifier)  
+**Version:** `1.0.0`  
+**License:** `MIT`  
+**Source:** [`Formula/video-amplifier.rb`](Formula/video-amplifier.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/video-amplifier
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`video-amplifier_1.0.0_darwin_arm64.tar.gz`](https://github.com/smford/video-amplifier/releases/download/v1.0.0/video-amplifier_1.0.0_darwin_arm64.tar.gz) | `7f1b9119ebe22351...` |
+| macOS (Intel (x86_64)) | [`video-amplifier_1.0.0_darwin_amd64.tar.gz`](https://github.com/smford/video-amplifier/releases/download/v1.0.0/video-amplifier_1.0.0_darwin_amd64.tar.gz) | `108dc01571c7a7b3...` |
+| Linux (ARM64) | [`video-amplifier_1.0.0_linux_arm64.tar.gz`](https://github.com/smford/video-amplifier/releases/download/v1.0.0/video-amplifier_1.0.0_linux_arm64.tar.gz) | `0191d47804118aab...` |
+| Linux (x86_64) | [`video-amplifier_1.0.0_linux_amd64.tar.gz`](https://github.com/smford/video-amplifier/releases/download/v1.0.0/video-amplifier_1.0.0_linux_amd64.tar.gz) | `ceb8261504549039...` |
+
+**Installed Binaries:** `video-amplifier`  
+
+**Verification & Update:**
+```bash
+brew test video-amplifier       # Run formula self-tests
+brew upgrade video-amplifier    # Upgrade to the latest version
+```
+
+---
+
 ## 🔍 Cask Details
 
 ### `osx-traffic-stats`
@@ -369,4 +402,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-08 21:31:49 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-09 01:10:34 UTC`.</sub>
