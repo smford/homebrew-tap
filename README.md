@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-9-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-10-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -47,6 +47,7 @@ brew install --cask smford/tap/<cask>
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
+| [`onvif-camera-simulator`](#onvif-camera-simulator) | Pure Go ONVIF Profile S/T/M and RTSP camera simulator with virtual PTZ and fleet scaling | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-camera-simulator` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
 | [`video-amplifier`](#video-amplifier) | High-performance streaming proxy for IP cameras with zero-transcode fan-out | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/video-amplifier` |
 
@@ -280,6 +281,38 @@ brew upgrade mdee    # Upgrade to the latest version
 
 ---
 
+### `onvif-camera-simulator`
+
+**Description:** Pure Go ONVIF Profile S/T/M and RTSP camera simulator with virtual PTZ and fleet scaling  
+**Homepage:** [https://github.com/smford/onvif-camera-simulator](https://github.com/smford/onvif-camera-simulator)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/onvif-camera-simulator.rb`](Formula/onvif-camera-simulator.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/onvif-camera-simulator
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`onvif-camera-simulator_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/onvif-camera-simulator/releases/download/v0.1.0/onvif-camera-simulator_0.1.0_darwin_arm64.tar.gz) | `6fad2d8de8d13222...` |
+| macOS (Intel (x86_64)) | [`onvif-camera-simulator_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/onvif-camera-simulator/releases/download/v0.1.0/onvif-camera-simulator_0.1.0_darwin_amd64.tar.gz) | `471bb49befff714d...` |
+| Linux (ARM64) | [`onvif-camera-simulator_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/onvif-camera-simulator/releases/download/v0.1.0/onvif-camera-simulator_0.1.0_linux_arm64.tar.gz) | `52cdd232e4c83e21...` |
+| Linux (x86_64) | [`onvif-camera-simulator_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/onvif-camera-simulator/releases/download/v0.1.0/onvif-camera-simulator_0.1.0_linux_amd64.tar.gz) | `e04d72f4958c8e45...` |
+
+**Installed Binaries:** `simulator`  
+
+**Verification & Update:**
+```bash
+brew test onvif-camera-simulator       # Run formula self-tests
+brew upgrade onvif-camera-simulator    # Upgrade to the latest version
+```
+
+---
+
 ### `tf-blast`
 
 **Description:** Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu  
@@ -402,4 +435,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-09 01:10:34 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-10 12:12:23 UTC`.</sub>
