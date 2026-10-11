@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-10-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-11-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -48,6 +48,7 @@ brew install --cask smford/tap/<cask>
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
 | [`onvif-camera-simulator`](#onvif-camera-simulator) | Pure Go ONVIF Profile S/T/M and RTSP camera simulator with virtual PTZ and fleet scaling | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-camera-simulator` |
+| [`termtosvg`](#termtosvg) | Render gorgeous, pixel-perfect SVGs from terminal commands, live screens, or ANSI logs | `0.1.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/termtosvg` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
 | [`video-amplifier`](#video-amplifier) | High-performance streaming proxy for IP cameras with zero-transcode fan-out | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/video-amplifier` |
 
@@ -313,6 +314,38 @@ brew upgrade onvif-camera-simulator    # Upgrade to the latest version
 
 ---
 
+### `termtosvg`
+
+**Description:** Render gorgeous, pixel-perfect SVGs from terminal commands, live screens, or ANSI logs  
+**Homepage:** [https://github.com/smford/terminal-to-svg](https://github.com/smford/terminal-to-svg)  
+**Version:** `0.1.1`  
+**License:** `MIT`  
+**Source:** [`Formula/termtosvg.rb`](Formula/termtosvg.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/termtosvg
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`terminal-to-svg_0.1.1_darwin_arm64.tar.gz`](https://github.com/smford/terminal-to-svg/releases/download/v0.1.1/terminal-to-svg_0.1.1_darwin_arm64.tar.gz) | `310790bd01d69d3f...` |
+| macOS (Intel (x86_64)) | [`terminal-to-svg_0.1.1_darwin_amd64.tar.gz`](https://github.com/smford/terminal-to-svg/releases/download/v0.1.1/terminal-to-svg_0.1.1_darwin_amd64.tar.gz) | `17a429ccfbcd451d...` |
+| Linux (ARM64) | [`terminal-to-svg_0.1.1_linux_arm64.tar.gz`](https://github.com/smford/terminal-to-svg/releases/download/v0.1.1/terminal-to-svg_0.1.1_linux_arm64.tar.gz) | `47c58f042ff6faf2...` |
+| Linux (x86_64) | [`terminal-to-svg_0.1.1_linux_amd64.tar.gz`](https://github.com/smford/terminal-to-svg/releases/download/v0.1.1/terminal-to-svg_0.1.1_linux_amd64.tar.gz) | `d1cb9297d1b5f1af...` |
+
+**Installed Binaries:** `termtosvg`  
+
+**Verification & Update:**
+```bash
+brew test termtosvg       # Run formula self-tests
+brew upgrade termtosvg    # Upgrade to the latest version
+```
+
+---
+
 ### `tf-blast`
 
 **Description:** Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu  
@@ -435,4 +468,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-10 12:41:32 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-11 00:25:17 UTC`.</sub>
