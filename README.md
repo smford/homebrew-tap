@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-13-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-14-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -49,6 +49,7 @@ brew install --cask smford/tap/<cask>
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
 | [`onvif-camera-simulator`](#onvif-camera-simulator) | Pure Go ONVIF Profile S/T/M and RTSP camera simulator with virtual PTZ and fleet scaling | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-camera-simulator` |
+| [`onvif-inspector`](#onvif-inspector) | Real-time ONVIF IP camera event diagnostic utility and terminal inspector | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-inspector` |
 | [`term2svg`](#term2svg) | Render terminal commands, ANSI streams, tmux panes, and screen models to vector SVGs | `0.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/term2svg` |
 | [`termtosvg`](#termtosvg) | Render gorgeous, pixel-perfect SVGs from terminal commands, live screens, or ANSI logs | `0.1.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/termtosvg` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
@@ -348,6 +349,38 @@ brew upgrade onvif-camera-simulator    # Upgrade to the latest version
 
 ---
 
+### `onvif-inspector`
+
+**Description:** Real-time ONVIF IP camera event diagnostic utility and terminal inspector  
+**Homepage:** [https://github.com/smford/onvif-inspector](https://github.com/smford/onvif-inspector)  
+**Version:** `1.0.0`  
+**License:** `MIT`  
+**Source:** [`Formula/onvif-inspector.rb`](Formula/onvif-inspector.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/onvif-inspector
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`onvif-inspector_1.0.0_darwin_arm64.tar.gz`](https://github.com/smford/onvif-inspector/releases/download/v1.0.0/onvif-inspector_1.0.0_darwin_arm64.tar.gz) | `b3c349dfece92744...` |
+| macOS (Intel (x86_64)) | [`onvif-inspector_1.0.0_darwin_amd64.tar.gz`](https://github.com/smford/onvif-inspector/releases/download/v1.0.0/onvif-inspector_1.0.0_darwin_amd64.tar.gz) | `3050eaf7fbdd0bb8...` |
+| Linux (ARM64) | [`onvif-inspector_1.0.0_linux_arm64.tar.gz`](https://github.com/smford/onvif-inspector/releases/download/v1.0.0/onvif-inspector_1.0.0_linux_arm64.tar.gz) | `fc3e8125f3e87b81...` |
+| Linux (x86_64) | [`onvif-inspector_1.0.0_linux_amd64.tar.gz`](https://github.com/smford/onvif-inspector/releases/download/v1.0.0/onvif-inspector_1.0.0_linux_amd64.tar.gz) | `43ebe6f41b03df9c...` |
+
+**Installed Binaries:** `onvif-inspector`  
+
+**Verification & Update:**
+```bash
+brew test onvif-inspector       # Run formula self-tests
+brew upgrade onvif-inspector    # Upgrade to the latest version
+```
+
+---
+
 ### `term2svg`
 
 **Description:** Render terminal commands, ANSI streams, tmux panes, and screen models to vector SVGs  
@@ -531,4 +564,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-11 19:51:26 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-17 23:54:55 UTC`.</sub>
