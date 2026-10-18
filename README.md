@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-15-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-16-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -54,6 +54,7 @@ brew install --cask smford/tap/<cask>
 | [`term2svg`](#term2svg) | Render terminal commands, ANSI streams, tmux panes, and screen models to vector SVGs | `0.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/term2svg` |
 | [`termtosvg`](#termtosvg) | Render gorgeous, pixel-perfect SVGs from terminal commands, live screens, or ANSI logs | `0.1.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/termtosvg` |
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
+| [`tf-move-gen`](#tf-move-gen) | Automated refactoring generator for Terraform and OpenTofu moved blocks | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-move-gen` |
 | [`video-amplifier`](#video-amplifier) | High-performance streaming proxy for IP cameras with zero-transcode fan-out | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/video-amplifier` |
 
 ---
@@ -507,6 +508,38 @@ brew upgrade tf-blast    # Upgrade to the latest version
 
 ---
 
+### `tf-move-gen`
+
+**Description:** Automated refactoring generator for Terraform and OpenTofu moved blocks  
+**Homepage:** [https://github.com/smford/tf-move-gen](https://github.com/smford/tf-move-gen)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/tf-move-gen.rb`](Formula/tf-move-gen.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/tf-move-gen
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`tf-move-gen_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/tf-move-gen/releases/download/v0.1.0/tf-move-gen_0.1.0_darwin_arm64.tar.gz) | `d164d183fe89fbbf...` |
+| macOS (Intel (x86_64)) | [`tf-move-gen_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/tf-move-gen/releases/download/v0.1.0/tf-move-gen_0.1.0_darwin_amd64.tar.gz) | `d2f169dbb1ec67b7...` |
+| Linux (ARM64) | [`tf-move-gen_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/tf-move-gen/releases/download/v0.1.0/tf-move-gen_0.1.0_linux_arm64.tar.gz) | `b610737da1415e5c...` |
+| Linux (x86_64) | [`tf-move-gen_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/tf-move-gen/releases/download/v0.1.0/tf-move-gen_0.1.0_linux_amd64.tar.gz) | `b02940985009a2cf...` |
+
+**Installed Binaries:** `tf-move-gen`  
+
+**Verification & Update:**
+```bash
+brew test tf-move-gen       # Run formula self-tests
+brew upgrade tf-move-gen    # Upgrade to the latest version
+```
+
+---
+
 ### `video-amplifier`
 
 **Description:** High-performance streaming proxy for IP cameras with zero-transcode fan-out  
@@ -597,4 +630,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-18 21:36:31 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-18 21:44:09 UTC`.</sub>
