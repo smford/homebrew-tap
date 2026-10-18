@@ -3,30 +3,30 @@
 
 # This formula was auto-generated for mcp-jail (https://github.com/smford/mcp-jail).
 class McpJail < Formula
-  desc "Zero-CGO local firewall and flight-recorder proxy for Model Context Protocol (MCP) servers"
+  desc "Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers"
   homepage "https://github.com/smford/mcp-jail"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_darwin_arm64.tar.gz"
-      sha256 "0915f3de54e7e8ec7f3b538ce7a5fc31b8bf1359a93d402630f6d4d5356db74f"
+      sha256 "9ebd14857be447feeb8fc81098a8742d68a1bc16c9c4ee6eb8bdf0272969ab23"
     end
     on_intel do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_darwin_amd64.tar.gz"
-      sha256 "85255b562cc770051dc2f4d24f99b78b0f008f92ce46cabc50b427161b458814"
+      sha256 "75e8271b68f41966011ed62f6b054f74dcd63c0c74d8be9c20bbd12a433cb2bc"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_linux_arm64.tar.gz"
-      sha256 "f3b9340dec8e0c4e849ab077a0aae22b6726a969cda002ed0776f10398c9a865"
+      sha256 "e557aa209973033bd164ae5d1d4508ab3b88a8cbaeba803b5e8f17259d14e8ad"
     end
     on_intel do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_linux_amd64.tar.gz"
-      sha256 "fd3af1fd4775349cd155e7d8b317932af336cf5acf469686bf9c3551453a8c3e"
+      sha256 "205dc9b54d7a37dc9d410c6d26eca0fc1acbb7be715a2d22d8c108fdcc6b5e08"
     end
   end
 
