@@ -47,7 +47,7 @@ brew install --cask smford/tap/<cask>
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
-| [`mcp-jail`](#mcp-jail) | Zero-CGO local firewall and flight-recorder proxy for Model Context Protocol (MCP) servers | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mcp-jail` |
+| [`mcp-jail`](#mcp-jail) | Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mcp-jail` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
 | [`onvif-camera-simulator`](#onvif-camera-simulator) | Pure Go ONVIF Profile S/T/M and RTSP camera simulator with virtual PTZ and fleet scaling | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-camera-simulator` |
 | [`onvif-inspector`](#onvif-inspector) | Real-time ONVIF IP camera event diagnostic utility and terminal inspector | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-inspector` |
@@ -288,9 +288,9 @@ brew upgrade mcat    # Upgrade to the latest version
 
 ### `mcp-jail`
 
-**Description:** Zero-CGO local firewall and flight-recorder proxy for Model Context Protocol (MCP) servers  
+**Description:** Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers  
 **Homepage:** [https://github.com/smford/mcp-jail](https://github.com/smford/mcp-jail)  
-**Version:** `0.1.0`  
+**Version:** `0.2.0`  
 **License:** `MIT`  
 **Source:** [`Formula/mcp-jail.rb`](Formula/mcp-jail.rb)  
 
@@ -303,10 +303,10 @@ brew install smford/tap/mcp-jail
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`mcp-jail_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.1.0/mcp-jail_0.1.0_darwin_arm64.tar.gz) | `0915f3de54e7e8ec...` |
-| macOS (Intel (x86_64)) | [`mcp-jail_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.1.0/mcp-jail_0.1.0_darwin_amd64.tar.gz) | `85255b562cc77005...` |
-| Linux (ARM64) | [`mcp-jail_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.1.0/mcp-jail_0.1.0_linux_arm64.tar.gz) | `f3b9340dec8e0c4e...` |
-| Linux (x86_64) | [`mcp-jail_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.1.0/mcp-jail_0.1.0_linux_amd64.tar.gz) | `fd3af1fd4775349c...` |
+| macOS (Apple Silicon (ARM64)) | [`mcp-jail_0.2.0_darwin_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.2.0/mcp-jail_0.2.0_darwin_arm64.tar.gz) | `9ebd14857be447fe...` |
+| macOS (Intel (x86_64)) | [`mcp-jail_0.2.0_darwin_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.2.0/mcp-jail_0.2.0_darwin_amd64.tar.gz) | `75e8271b68f41966...` |
+| Linux (ARM64) | [`mcp-jail_0.2.0_linux_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.2.0/mcp-jail_0.2.0_linux_arm64.tar.gz) | `e557aa209973033b...` |
+| Linux (x86_64) | [`mcp-jail_0.2.0_linux_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.2.0/mcp-jail_0.2.0_linux_amd64.tar.gz) | `205dc9b54d7a37dc...` |
 
 **Installed Binaries:** `mcp-jail`  
 
@@ -597,4 +597,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-18 19:42:28 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-18 21:36:31 UTC`.</sub>
