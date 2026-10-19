@@ -5,28 +5,28 @@
 class McpJail < Formula
   desc "Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers"
   homepage "https://github.com/smford/mcp-jail"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_darwin_arm64.tar.gz"
-      sha256 "9ebd14857be447feeb8fc81098a8742d68a1bc16c9c4ee6eb8bdf0272969ab23"
+      sha256 "2dd981db318194014ec6fd23c74c74fefa2ffa0eb5372e9813e61209222412a2"
     end
     on_intel do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_darwin_amd64.tar.gz"
-      sha256 "75e8271b68f41966011ed62f6b054f74dcd63c0c74d8be9c20bbd12a433cb2bc"
+      sha256 "b57bc7d23d479975545298bb5014076a9d78c74f016589e04d9a4a40cca57b4c"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_linux_arm64.tar.gz"
-      sha256 "e557aa209973033bd164ae5d1d4508ab3b88a8cbaeba803b5e8f17259d14e8ad"
+      sha256 "e6502c7c0577fe69879a834c28d500e620125ebaf9abe23351b7bddd0856d906"
     end
     on_intel do
       url "https://github.com/smford/mcp-jail/releases/download/v#{version}/mcp-jail_#{version}_linux_amd64.tar.gz"
-      sha256 "205dc9b54d7a37dc9d410c6d26eca0fc1acbb7be715a2d22d8c108fdcc6b5e08"
+      sha256 "bd07fb4b1b8e28464edda8ae393f4be8e2bf39d176c6444aba09abb32052416b"
     end
   end
 
