@@ -47,7 +47,7 @@ brew install --cask smford/tap/<cask>
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
-| [`mcp-jail`](#mcp-jail) | Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers | `0.5.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mcp-jail` |
+| [`mcp-jail`](#mcp-jail) | Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mcp-jail` |
 | [`mdee`](#mdee) | Terminal Markdown viewer for macOS iTerm2 | `1.8.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mdee` |
 | [`onvif-camera-simulator`](#onvif-camera-simulator) | Pure Go ONVIF Profile S/T/M and RTSP camera simulator with virtual PTZ and fleet scaling | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-camera-simulator` |
 | [`onvif-inspector`](#onvif-inspector) | Real-time ONVIF IP camera event diagnostic utility and terminal inspector | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/onvif-inspector` |
@@ -291,7 +291,7 @@ brew upgrade mcat    # Upgrade to the latest version
 
 **Description:** Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers  
 **Homepage:** [https://github.com/smford/mcp-jail](https://github.com/smford/mcp-jail)  
-**Version:** `0.5.0`  
+**Version:** `0.6.0`  
 **License:** `MIT`  
 **Source:** [`Formula/mcp-jail.rb`](Formula/mcp-jail.rb)  
 
@@ -304,10 +304,10 @@ brew install smford/tap/mcp-jail
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`mcp-jail_0.5.0_darwin_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.5.0/mcp-jail_0.5.0_darwin_arm64.tar.gz) | `c170bdb2872f7714...` |
-| macOS (Intel (x86_64)) | [`mcp-jail_0.5.0_darwin_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.5.0/mcp-jail_0.5.0_darwin_amd64.tar.gz) | `9272899d1d90ffc7...` |
-| Linux (ARM64) | [`mcp-jail_0.5.0_linux_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.5.0/mcp-jail_0.5.0_linux_arm64.tar.gz) | `ad447743c00b3907...` |
-| Linux (x86_64) | [`mcp-jail_0.5.0_linux_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.5.0/mcp-jail_0.5.0_linux_amd64.tar.gz) | `fbee4c57864ce310...` |
+| macOS (Apple Silicon (ARM64)) | [`mcp-jail_0.6.0_darwin_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.6.0/mcp-jail_0.6.0_darwin_arm64.tar.gz) | `a4251c81c2d28eb8...` |
+| macOS (Intel (x86_64)) | [`mcp-jail_0.6.0_darwin_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.6.0/mcp-jail_0.6.0_darwin_amd64.tar.gz) | `3da3d682bacec68e...` |
+| Linux (ARM64) | [`mcp-jail_0.6.0_linux_arm64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.6.0/mcp-jail_0.6.0_linux_arm64.tar.gz) | `4ed978a714692b52...` |
+| Linux (x86_64) | [`mcp-jail_0.6.0_linux_amd64.tar.gz`](https://github.com/smford/mcp-jail/releases/download/v0.6.0/mcp-jail_0.6.0_linux_amd64.tar.gz) | `593390345134d26d...` |
 
 **Installed Binaries:** `mcp-jail`  
 
@@ -630,4 +630,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-20 00:01:01 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-20 23:21:11 UTC`.</sub>
