@@ -5,28 +5,28 @@
 class IamShrink < Formula
   desc "Local-to-Least-Privilege AWS IAM Policy Generator"
   homepage "https://github.com/smford/iam-shrink"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/iam-shrink/releases/download/v#{version}/iam-shrink_#{version}_darwin_arm64.tar.gz"
-      sha256 "f2a88453b9edc8a31ade17b51d46de4071067cdadc5fce38084c3b174616d804"
+      sha256 "563233c52497ec0a61811aa2f4e1d0cce041be3e83b16b0580c8e66d26d31273"
     end
     on_intel do
       url "https://github.com/smford/iam-shrink/releases/download/v#{version}/iam-shrink_#{version}_darwin_amd64.tar.gz"
-      sha256 "32977e163b58ea8273eef431f84813415062e5fba4845f6e30b58badedb32db1"
+      sha256 "44d9d8ccba6115042451cdc86cb535d0cd8f331d43989e191ea7a1305e2f24c6"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/iam-shrink/releases/download/v#{version}/iam-shrink_#{version}_linux_arm64.tar.gz"
-      sha256 "7afd8be1d8a0db02799d0c4c84d9e38affa1d2317a75d4874806ab27d0b104aa"
+      sha256 "2afc4e47be3dc8548829f43c648c913d1071e44e083cbadc72fd16e44a6ed997"
     end
     on_intel do
       url "https://github.com/smford/iam-shrink/releases/download/v#{version}/iam-shrink_#{version}_linux_amd64.tar.gz"
-      sha256 "025934d9d2c456d4103067250aef413c5333f0b87a0b2ffc75654c10d483cf6a"
+      sha256 "7ec65118f47b627702d64edea6e0481bf7069d1ceadc68e4423f05ff86e58ea9"
     end
   end
 
