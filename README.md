@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-17-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-18-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -45,6 +45,7 @@ brew install --cask smford/tap/<cask>
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
+| [`gha-local-lint`](#gha-local-lint) | Offline GitHub Actions Expression Evaluator, Matrix Expander, & Pipeline Simulator | `0.4.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gha-local-lint` |
 | [`iam-shrink`](#iam-shrink) | Local-to-Least-Privilege AWS IAM Policy Generator | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/iam-shrink` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
@@ -226,6 +227,38 @@ brew install smford/tap/gh-stats
 ```bash
 brew test gh-stats       # Run formula self-tests
 brew upgrade gh-stats    # Upgrade to the latest version
+```
+
+---
+
+### `gha-local-lint`
+
+**Description:** Offline GitHub Actions Expression Evaluator, Matrix Expander, & Pipeline Simulator  
+**Homepage:** [https://github.com/smford/gha-local-lint](https://github.com/smford/gha-local-lint)  
+**Version:** `0.4.0`  
+**License:** `MIT`  
+**Source:** [`Formula/gha-local-lint.rb`](Formula/gha-local-lint.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/gha-local-lint
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`gha-local-lint_0.4.0_darwin_arm64.tar.gz`](https://github.com/smford/gha-local-lint/releases/download/v0.4.0/gha-local-lint_0.4.0_darwin_arm64.tar.gz) | `98bed8a80b098409...` |
+| macOS (Intel (x86_64)) | [`gha-local-lint_0.4.0_darwin_amd64.tar.gz`](https://github.com/smford/gha-local-lint/releases/download/v0.4.0/gha-local-lint_0.4.0_darwin_amd64.tar.gz) | `7c8e0d57685adb56...` |
+| Linux (ARM64) | [`gha-local-lint_0.4.0_linux_arm64.tar.gz`](https://github.com/smford/gha-local-lint/releases/download/v0.4.0/gha-local-lint_0.4.0_linux_arm64.tar.gz) | `e85542f557ac1f3b...` |
+| Linux (x86_64) | [`gha-local-lint_0.4.0_linux_amd64.tar.gz`](https://github.com/smford/gha-local-lint/releases/download/v0.4.0/gha-local-lint_0.4.0_linux_amd64.tar.gz) | `a56f055f637559b9...` |
+
+**Installed Binaries:** `gha-local-lint`  
+
+**Verification & Update:**
+```bash
+brew test gha-local-lint       # Run formula self-tests
+brew upgrade gha-local-lint    # Upgrade to the latest version
 ```
 
 ---
@@ -663,4 +696,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-22 00:31:29 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-22 16:20:56 UTC`.</sub>
