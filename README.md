@@ -45,7 +45,7 @@ brew install --cask smford/tap/<cask>
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
-| [`iam-shrink`](#iam-shrink) | Local-to-Least-Privilege AWS IAM Policy Generator | `0.5.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/iam-shrink` |
+| [`iam-shrink`](#iam-shrink) | Local-to-Least-Privilege AWS IAM Policy Generator | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/iam-shrink` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mcp-jail`](#mcp-jail) | Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mcp-jail` |
@@ -234,7 +234,7 @@ brew upgrade gh-stats    # Upgrade to the latest version
 
 **Description:** Local-to-Least-Privilege AWS IAM Policy Generator  
 **Homepage:** [https://github.com/smford/iam-shrink](https://github.com/smford/iam-shrink)  
-**Version:** `0.5.0`  
+**Version:** `0.6.0`  
 **License:** `MIT`  
 **Source:** [`Formula/iam-shrink.rb`](Formula/iam-shrink.rb)  
 
@@ -247,10 +247,10 @@ brew install smford/tap/iam-shrink
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`iam-shrink_0.5.0_darwin_arm64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.5.0/iam-shrink_0.5.0_darwin_arm64.tar.gz) | `f2a88453b9edc8a3...` |
-| macOS (Intel (x86_64)) | [`iam-shrink_0.5.0_darwin_amd64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.5.0/iam-shrink_0.5.0_darwin_amd64.tar.gz) | `32977e163b58ea82...` |
-| Linux (ARM64) | [`iam-shrink_0.5.0_linux_arm64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.5.0/iam-shrink_0.5.0_linux_arm64.tar.gz) | `7afd8be1d8a0db02...` |
-| Linux (x86_64) | [`iam-shrink_0.5.0_linux_amd64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.5.0/iam-shrink_0.5.0_linux_amd64.tar.gz) | `025934d9d2c456d4...` |
+| macOS (Apple Silicon (ARM64)) | [`iam-shrink_0.6.0_darwin_arm64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.6.0/iam-shrink_0.6.0_darwin_arm64.tar.gz) | `563233c52497ec0a...` |
+| macOS (Intel (x86_64)) | [`iam-shrink_0.6.0_darwin_amd64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.6.0/iam-shrink_0.6.0_darwin_amd64.tar.gz) | `44d9d8ccba611504...` |
+| Linux (ARM64) | [`iam-shrink_0.6.0_linux_arm64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.6.0/iam-shrink_0.6.0_linux_arm64.tar.gz) | `2afc4e47be3dc854...` |
+| Linux (x86_64) | [`iam-shrink_0.6.0_linux_amd64.tar.gz`](https://github.com/smford/iam-shrink/releases/download/v0.6.0/iam-shrink_0.6.0_linux_amd64.tar.gz) | `7ec65118f47b6277...` |
 
 **Installed Binaries:** `iam-shrink`  
 
@@ -663,4 +663,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-22 00:08:48 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-22 00:31:29 UTC`.</sub>
