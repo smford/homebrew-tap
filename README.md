@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-18-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-19-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -47,6 +47,7 @@ brew install --cask smford/tap/<cask>
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`gha-local-lint`](#gha-local-lint) | Offline GitHub Actions Expression Evaluator, Matrix Expander, & Pipeline Simulator | `0.5.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gha-local-lint` |
 | [`iam-shrink`](#iam-shrink) | Local-to-Least-Privilege AWS IAM Policy Generator | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/iam-shrink` |
+| [`imds-canary`](#imds-canary) | eBPF AWS IMDS Canary & Process Attribution Daemon | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/imds-canary` |
 | [`matrix-rain`](#matrix-rain) | Authentic Matrix digital rain terminal simulator written in Go | `1.1.0` | `MIT` | macOS, Linux | `brew install smford/tap/matrix-rain` |
 | [`mcat`](#mcat) | Authentic Matrix digital rain terminal simulator and text viewer written in Go | `1.2.0` | `MIT` | macOS, Linux | `brew install smford/tap/mcat` |
 | [`mcp-jail`](#mcp-jail) | Lightweight security proxy and flight recorder for Model Context Protocol (MCP) servers | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/mcp-jail` |
@@ -291,6 +292,38 @@ brew install smford/tap/iam-shrink
 ```bash
 brew test iam-shrink       # Run formula self-tests
 brew upgrade iam-shrink    # Upgrade to the latest version
+```
+
+---
+
+### `imds-canary`
+
+**Description:** eBPF AWS IMDS Canary & Process Attribution Daemon  
+**Homepage:** [https://github.com/smford/imds-canary](https://github.com/smford/imds-canary)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/imds-canary.rb`](Formula/imds-canary.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/imds-canary
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`imds-canary_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_darwin_arm64.tar.gz) | `2e9ac3ee6bb13b4e...` |
+| macOS (Intel (x86_64)) | [`imds-canary_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_darwin_amd64.tar.gz) | `43917762eb35a02d...` |
+| Linux (ARM64) | [`imds-canary_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_linux_arm64.tar.gz) | `6916b5c1bf68e4f2...` |
+| Linux (x86_64) | [`imds-canary_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_linux_amd64.tar.gz) | `77800d7f0b4c037c...` |
+
+**Installed Binaries:** `imds-canary`  
+
+**Verification & Update:**
+```bash
+brew test imds-canary       # Run formula self-tests
+brew upgrade imds-canary    # Upgrade to the latest version
 ```
 
 ---
@@ -696,4 +729,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-22 22:26:33 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-24 01:17:18 UTC`.</sub>
