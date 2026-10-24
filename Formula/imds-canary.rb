@@ -11,22 +11,22 @@ class ImdsCanary < Formula
   on_macos do
     on_arm do
       url "https://github.com/smford/imds-canary/releases/download/v#{version}/imds-canary_#{version}_darwin_arm64.tar.gz"
-      sha256 "d48b1ca01f8dc0efec94d0d82d0150a3b65456fd493241965354d109baa26f28"
+      sha256 "0683a8ac7c7079a90036133b77e05d26bbb2c14996365b9c2b12ac90cac35777"
     end
     on_intel do
       url "https://github.com/smford/imds-canary/releases/download/v#{version}/imds-canary_#{version}_darwin_amd64.tar.gz"
-      sha256 "61b5b6e5a21a9885e043e819a14a839340b8240d72b74493342e15ffa47fd952"
+      sha256 "01575a4b25cac772a3929e7045877b327693b524ac0408265080f90bec3efc48"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/imds-canary/releases/download/v#{version}/imds-canary_#{version}_linux_arm64.tar.gz"
-      sha256 "9451b7f09d4ff36f7dc31cb0bab6939d46a29f246ced656685473bc11522ba4f"
+      sha256 "070ad800df6266736e42731a50e2176fc9ac1c0e4c1bcb14794aa5a34c2f981d"
     end
     on_intel do
       url "https://github.com/smford/imds-canary/releases/download/v#{version}/imds-canary_#{version}_linux_amd64.tar.gz"
-      sha256 "3a86173cb11966ae1041b3f9fbe0d9c4e3ec28676b9b2387cb0ef3d7dd67e54c"
+      sha256 "b25503815ba4dc82434547937fe6a1535edaf3d3b9dfb5a65324fa042af18f61"
     end
   end
 
