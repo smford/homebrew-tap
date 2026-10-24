@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-20-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-21-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -60,6 +60,7 @@ brew install --cask smford/tap/<cask>
 | [`tf-blast`](#tf-blast) | Ultra-fast, zero-trust blast radius analyzer for Terraform and OpenTofu | `1.2.2` | `AGPL-3.0-or-later` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-blast` |
 | [`tf-move-gen`](#tf-move-gen) | Automated refactoring generator for Terraform and OpenTofu moved blocks | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/tf-move-gen` |
 | [`video-amplifier`](#video-amplifier) | High-performance streaming proxy for IP cameras with zero-transcode fan-out | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/video-amplifier` |
+| [`webhook-replay-proxy`](#webhook-replay-proxy) | Production-grade webhook capture, replay, and inspection proxy | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/webhook-replay-proxy` |
 
 ---
 
@@ -704,6 +705,38 @@ brew upgrade video-amplifier    # Upgrade to the latest version
 
 ---
 
+### `webhook-replay-proxy`
+
+**Description:** Production-grade webhook capture, replay, and inspection proxy  
+**Homepage:** [https://github.com/smford/webhook-replay-proxy](https://github.com/smford/webhook-replay-proxy)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/webhook-replay-proxy.rb`](Formula/webhook-replay-proxy.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/webhook-replay-proxy
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`webhook-replay-proxy_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/webhook-replay-proxy/releases/download/v0.1.0/webhook-replay-proxy_0.1.0_darwin_arm64.tar.gz) | `8fed3e6c291a49e0...` |
+| macOS (Intel (x86_64)) | [`webhook-replay-proxy_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/webhook-replay-proxy/releases/download/v0.1.0/webhook-replay-proxy_0.1.0_darwin_amd64.tar.gz) | `22e8ebf0f1bd9285...` |
+| Linux (ARM64) | [`webhook-replay-proxy_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/webhook-replay-proxy/releases/download/v0.1.0/webhook-replay-proxy_0.1.0_linux_arm64.tar.gz) | `d3363accd6195a2e...` |
+| Linux (x86_64) | [`webhook-replay-proxy_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/webhook-replay-proxy/releases/download/v0.1.0/webhook-replay-proxy_0.1.0_linux_amd64.tar.gz) | `3f8b091f805d4eb3...` |
+
+**Installed Binaries:** `webhook-replay-proxy`  
+
+**Verification & Update:**
+```bash
+brew test webhook-replay-proxy       # Run formula self-tests
+brew upgrade webhook-replay-proxy    # Upgrade to the latest version
+```
+
+---
+
 ## 🔍 Cask Details
 
 ### `osx-traffic-stats`
@@ -762,4 +795,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-24 01:45:39 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-24 16:04:29 UTC`.</sub>
