@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-19-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-20-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -41,6 +41,7 @@ brew install --cask smford/tap/<cask>
 | Formula | Description | Version | License | Platforms | Quick Install |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
+| [`cert-chain-doctor`](#cert-chain-doctor) | Visual TLS handshake & intermediate certificate chain debugger and AIA auto-repairer | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cert-chain-doctor` |
 | [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
@@ -100,6 +101,38 @@ brew install smford/tap/cam-proxy
 ```bash
 brew test cam-proxy       # Run formula self-tests
 brew upgrade cam-proxy    # Upgrade to the latest version
+```
+
+---
+
+### `cert-chain-doctor`
+
+**Description:** Visual TLS handshake & intermediate certificate chain debugger and AIA auto-repairer  
+**Homepage:** [https://github.com/smford/cert-chain-doctor](https://github.com/smford/cert-chain-doctor)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/cert-chain-doctor.rb`](Formula/cert-chain-doctor.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/cert-chain-doctor
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`cert-chain-doctor_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/cert-chain-doctor/releases/download/v0.1.0/cert-chain-doctor_0.1.0_darwin_arm64.tar.gz) | `10ad5d9e73e544e5...` |
+| macOS (Intel (x86_64)) | [`cert-chain-doctor_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/cert-chain-doctor/releases/download/v0.1.0/cert-chain-doctor_0.1.0_darwin_amd64.tar.gz) | `a83838e285598d9b...` |
+| Linux (ARM64) | [`cert-chain-doctor_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/cert-chain-doctor/releases/download/v0.1.0/cert-chain-doctor_0.1.0_linux_arm64.tar.gz) | `620af6da36165b31...` |
+| Linux (x86_64) | [`cert-chain-doctor_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/cert-chain-doctor/releases/download/v0.1.0/cert-chain-doctor_0.1.0_linux_amd64.tar.gz) | `afb010b3d6fc6c43...` |
+
+**Installed Binaries:** `cert-chain-doctor`  
+
+**Verification & Update:**
+```bash
+brew test cert-chain-doctor       # Run formula self-tests
+brew upgrade cert-chain-doctor    # Upgrade to the latest version
 ```
 
 ---
@@ -729,4 +762,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-24 01:17:18 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-24 01:17:43 UTC`.</sub>
