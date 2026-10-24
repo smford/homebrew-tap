@@ -346,10 +346,10 @@ brew install smford/tap/imds-canary
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`imds-canary_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_darwin_arm64.tar.gz) | `2e9ac3ee6bb13b4e...` |
-| macOS (Intel (x86_64)) | [`imds-canary_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_darwin_amd64.tar.gz) | `43917762eb35a02d...` |
-| Linux (ARM64) | [`imds-canary_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_linux_arm64.tar.gz) | `6916b5c1bf68e4f2...` |
-| Linux (x86_64) | [`imds-canary_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_linux_amd64.tar.gz) | `77800d7f0b4c037c...` |
+| macOS (Apple Silicon (ARM64)) | [`imds-canary_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_darwin_arm64.tar.gz) | `d48b1ca01f8dc0ef...` |
+| macOS (Intel (x86_64)) | [`imds-canary_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_darwin_amd64.tar.gz) | `61b5b6e5a21a9885...` |
+| Linux (ARM64) | [`imds-canary_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_linux_arm64.tar.gz) | `9451b7f09d4ff36f...` |
+| Linux (x86_64) | [`imds-canary_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/imds-canary/releases/download/v0.1.0/imds-canary_0.1.0_linux_amd64.tar.gz) | `3a86173cb11966ae...` |
 
 **Installed Binaries:** `imds-canary`  
 
@@ -762,4 +762,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-24 01:38:35 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-24 01:43:16 UTC`.</sub>
