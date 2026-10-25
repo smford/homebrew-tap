@@ -45,7 +45,7 @@ brew install --cask smford/tap/<cask>
 | [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
-| [`domain-doctor`](#domain-doctor) | Comprehensive domain health, DNS diagnostic, and TLS autopsy CLI tool | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/domain-doctor` |
+| [`domain-doctor`](#domain-doctor) | Comprehensive domain health, DNS diagnostic, and TLS autopsy CLI tool | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/domain-doctor` |
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`gha-local-lint`](#gha-local-lint) | Offline GitHub Actions Expression Evaluator, Matrix Expander, & Pipeline Simulator | `0.5.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gha-local-lint` |
 | [`iam-shrink`](#iam-shrink) | Local-to-Least-Privilege AWS IAM Policy Generator | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/iam-shrink` |
@@ -239,7 +239,7 @@ brew upgrade delim    # Upgrade to the latest version
 
 **Description:** Comprehensive domain health, DNS diagnostic, and TLS autopsy CLI tool  
 **Homepage:** [https://github.com/smford/domain-doctor](https://github.com/smford/domain-doctor)  
-**Version:** `0.1.0`  
+**Version:** `0.2.0`  
 **License:** `MIT`  
 **Source:** [`Formula/domain-doctor.rb`](Formula/domain-doctor.rb)  
 
@@ -252,10 +252,10 @@ brew install smford/tap/domain-doctor
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`domain-doctor_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_darwin_arm64.tar.gz) | `bd070967a05fddae...` |
-| macOS (Intel (x86_64)) | [`domain-doctor_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_darwin_amd64.tar.gz) | `c1afef1922769144...` |
-| Linux (ARM64) | [`domain-doctor_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_linux_arm64.tar.gz) | `925c9b5fa9fdf9cd...` |
-| Linux (x86_64) | [`domain-doctor_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_linux_amd64.tar.gz) | `6663f9f7a88f3c81...` |
+| macOS (Apple Silicon (ARM64)) | [`domain-doctor_0.2.0_darwin_arm64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.2.0/domain-doctor_0.2.0_darwin_arm64.tar.gz) | `04c2b6cf77aeccbd...` |
+| macOS (Intel (x86_64)) | [`domain-doctor_0.2.0_darwin_amd64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.2.0/domain-doctor_0.2.0_darwin_amd64.tar.gz) | `97a4c92d3fe3c9af...` |
+| Linux (ARM64) | [`domain-doctor_0.2.0_linux_arm64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.2.0/domain-doctor_0.2.0_linux_arm64.tar.gz) | `705d1fa61e74280b...` |
+| Linux (x86_64) | [`domain-doctor_0.2.0_linux_amd64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.2.0/domain-doctor_0.2.0_linux_amd64.tar.gz) | `407a7d4fa840c601...` |
 
 **Installed Binaries:** `domain-doctor`  
 
@@ -828,4 +828,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-25 20:41:01 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-25 21:41:41 UTC`.</sub>
