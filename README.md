@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-21-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-22-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -45,6 +45,7 @@ brew install --cask smford/tap/<cask>
 | [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
+| [`domain-doctor`](#domain-doctor) | Comprehensive domain health, DNS diagnostic, and TLS autopsy CLI tool | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/domain-doctor` |
 | [`gh-stats`](#gh-stats) | SRE & developer reliability statistics for GitHub PRs and repositories | `0.11.3` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gh-stats` |
 | [`gha-local-lint`](#gha-local-lint) | Offline GitHub Actions Expression Evaluator, Matrix Expander, & Pipeline Simulator | `0.5.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/gha-local-lint` |
 | [`iam-shrink`](#iam-shrink) | Local-to-Least-Privilege AWS IAM Policy Generator | `0.6.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/iam-shrink` |
@@ -230,6 +231,38 @@ brew install smford/tap/delim
 ```bash
 brew test delim       # Run formula self-tests
 brew upgrade delim    # Upgrade to the latest version
+```
+
+---
+
+### `domain-doctor`
+
+**Description:** Comprehensive domain health, DNS diagnostic, and TLS autopsy CLI tool  
+**Homepage:** [https://github.com/smford/domain-doctor](https://github.com/smford/domain-doctor)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/domain-doctor.rb`](Formula/domain-doctor.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/domain-doctor
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`domain-doctor_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_darwin_arm64.tar.gz) | `bd070967a05fddae...` |
+| macOS (Intel (x86_64)) | [`domain-doctor_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_darwin_amd64.tar.gz) | `c1afef1922769144...` |
+| Linux (ARM64) | [`domain-doctor_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_linux_arm64.tar.gz) | `925c9b5fa9fdf9cd...` |
+| Linux (x86_64) | [`domain-doctor_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/domain-doctor/releases/download/v0.1.0/domain-doctor_0.1.0_linux_amd64.tar.gz) | `6663f9f7a88f3c81...` |
+
+**Installed Binaries:** `domain-doctor`  
+
+**Verification & Update:**
+```bash
+brew test domain-doctor       # Run formula self-tests
+brew upgrade domain-doctor    # Upgrade to the latest version
 ```
 
 ---
@@ -795,4 +828,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-24 23:18:51 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-25 20:41:01 UTC`.</sub>
