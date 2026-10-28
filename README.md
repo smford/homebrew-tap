@@ -40,7 +40,7 @@ brew install --cask smford/tap/<cask>
 
 | Formula | Description | Version | License | Platforms | Quick Install |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [`aws-cost-report`](#aws-cost-report) | AWS Cost & Usage reporting CLI and service | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/aws-cost-report` |
+| [`aws-cost-report`](#aws-cost-report) | AWS Cost & Usage reporting CLI and service | `latest` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/aws-cost-report` |
 | [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
 | [`cert-chain-doctor`](#cert-chain-doctor) | Visual TLS handshake & intermediate certificate chain debugger and AIA auto-repairer | `0.1.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cert-chain-doctor` |
 | [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
@@ -80,7 +80,7 @@ brew install --cask smford/tap/<cask>
 
 **Description:** AWS Cost & Usage reporting CLI and service  
 **Homepage:** [https://github.com/smford/aws-cost-report](https://github.com/smford/aws-cost-report)  
-**Version:** `0.1.0`  
+**Version:** `latest`  
 **License:** `MIT`  
 **Source:** [`Formula/aws-cost-report.rb`](Formula/aws-cost-report.rb)  
 
@@ -861,4 +861,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-28 23:43:13 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-28 23:47:43 UTC`.</sub>
