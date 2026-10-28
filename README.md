@@ -1,6 +1,6 @@
 # smford/tap
 
-[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-22-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
+[![Documentation & Pages](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml/badge.svg)](https://github.com/smford/homebrew-tap/actions/workflows/docs-and-pages.yml) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-2563eb.svg)](https://smford.github.io/homebrew-tap/) ![Formulas Count](https://img.shields.io/badge/formulas-23-10b981.svg) ![Casks Count](https://img.shields.io/badge/casks-1-8b5cf6.svg)
 
 Official [Homebrew](https://brew.sh/) tap for [smford](https://github.com/smford/homebrew-tap).
 Browse the interactive documentation and web catalog at **[https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)**.
@@ -16,7 +16,7 @@ Add this tap once to Homebrew, then install any formula or cask directly:
 brew tap smford/tap
 
 # Install a command-line formula (CLI tool)
-brew install cam-proxy
+brew install aws-cost-report
 
 # Install a cask (macOS GUI application)
 brew install --cask osx-traffic-stats
@@ -40,6 +40,7 @@ brew install --cask smford/tap/<cask>
 
 | Formula | Description | Version | License | Platforms | Quick Install |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [`aws-cost-report`](#aws-cost-report) | AWS Cost & Usage reporting CLI and service | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/aws-cost-report` |
 | [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
 | [`cert-chain-doctor`](#cert-chain-doctor) | Visual TLS handshake & intermediate certificate chain debugger and AIA auto-repairer | `0.1.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cert-chain-doctor` |
 | [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
@@ -74,6 +75,38 @@ brew install --cask smford/tap/<cask>
 ---
 
 ## 🔍 Formula Details
+
+### `aws-cost-report`
+
+**Description:** AWS Cost & Usage reporting CLI and service  
+**Homepage:** [https://github.com/smford/aws-cost-report](https://github.com/smford/aws-cost-report)  
+**Version:** `0.1.0`  
+**License:** `MIT`  
+**Source:** [`Formula/aws-cost-report.rb`](Formula/aws-cost-report.rb)  
+
+**Install:**
+```bash
+brew install smford/tap/aws-cost-report
+```
+
+**Supported Platforms & Packages:**
+
+| OS / Architecture | Binary Package | SHA-256 Checksum |
+| :--- | :--- | :--- |
+| macOS (Apple Silicon (ARM64)) | [`aws-cost-report_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.1.0/aws-cost-report_0.1.0_darwin_arm64.tar.gz) | `d24dfad27e801cea...` |
+| macOS (Intel (x86_64)) | [`aws-cost-report_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.1.0/aws-cost-report_0.1.0_darwin_amd64.tar.gz) | `1ef1928408a0b780...` |
+| Linux (ARM64) | [`aws-cost-report_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.1.0/aws-cost-report_0.1.0_linux_arm64.tar.gz) | `ee8202a61343f5be...` |
+| Linux (x86_64) | [`aws-cost-report_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.1.0/aws-cost-report_0.1.0_linux_amd64.tar.gz) | `51b7ebb66789c7ff...` |
+
+**Installed Binaries:** `aws-cost-report`  
+
+**Verification & Update:**
+```bash
+brew test aws-cost-report       # Run formula self-tests
+brew upgrade aws-cost-report    # Upgrade to the latest version
+```
+
+---
 
 ### `cam-proxy`
 
@@ -828,4 +861,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-25 21:41:41 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-28 23:43:13 UTC`.</sub>
