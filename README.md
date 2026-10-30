@@ -93,10 +93,10 @@ brew install smford/tap/aws-cost-report
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`aws-cost-report_0.11.0_darwin_arm64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.11.0/aws-cost-report_0.11.0_darwin_arm64.tar.gz) | `0d61ee31db159e99...` |
-| macOS (Intel (x86_64)) | [`aws-cost-report_0.11.0_darwin_amd64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.11.0/aws-cost-report_0.11.0_darwin_amd64.tar.gz) | `3091af7f3f205d4b...` |
-| Linux (ARM64) | [`aws-cost-report_0.11.0_linux_arm64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.11.0/aws-cost-report_0.11.0_linux_arm64.tar.gz) | `657ac1c35e0cfc4d...` |
-| Linux (x86_64) | [`aws-cost-report_0.11.0_linux_amd64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.11.0/aws-cost-report_0.11.0_linux_amd64.tar.gz) | `1e44278c8ed5dd02...` |
+| macOS (Apple Silicon (ARM64)) | [`aws-cost-report_0.13.0_darwin_arm64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.13.0/aws-cost-report_0.13.0_darwin_arm64.tar.gz) | `2b8c5c0f1c988147...` |
+| macOS (Intel (x86_64)) | [`aws-cost-report_0.13.0_darwin_amd64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.13.0/aws-cost-report_0.13.0_darwin_amd64.tar.gz) | `aa9b911b762a547e...` |
+| Linux (ARM64) | [`aws-cost-report_0.13.0_linux_arm64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.13.0/aws-cost-report_0.13.0_linux_arm64.tar.gz) | `6862b55042ac9c54...` |
+| Linux (x86_64) | [`aws-cost-report_0.13.0_linux_amd64.tar.gz`](https://github.com/smford/aws-cost-report/releases/download/v0.13.0/aws-cost-report_0.13.0_linux_amd64.tar.gz) | `d8c7ce558067600b...` |
 
 **Installed Binaries:** `aws-cost-report`  
 
@@ -861,4 +861,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-29 22:59:58 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-10-30 01:10:47 UTC`.</sub>
