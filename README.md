@@ -43,7 +43,7 @@ brew install --cask smford/tap/<cask>
 | [`aws-cost-report`](#aws-cost-report) | AWS Cost & Usage reporting CLI and service | `latest` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/aws-cost-report` |
 | [`cam-proxy`](#cam-proxy) | Lightweight edge camera gateway — snapshots, PTZ control, and ONVIF-to-MQTT events | `0.4.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cam-proxy` |
 | [`cert-chain-doctor`](#cert-chain-doctor) | Visual TLS handshake & intermediate certificate chain debugger and AIA auto-repairer | `0.1.1` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cert-chain-doctor` |
-| [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.1.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
+| [`chrome-tab-cleaner`](#chrome-tab-cleaner) | Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/chrome-tab-cleaner` |
 | [`cidr-calculator`](#cidr-calculator) | Convert IP ranges into minimal CIDR blocks with subnet intelligence | `1.0.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/cidr-calculator` |
 | [`delim`](#delim) | Creates a visual line to aid in reading terminal screens | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/delim` |
 | [`domain-doctor`](#domain-doctor) | Comprehensive domain health, DNS diagnostic, and TLS autopsy CLI tool | `0.2.0` | `MIT` | macOS (Apple Silicon & Intel), Linux (ARM64 & x86_64) | `brew install smford/tap/domain-doctor` |
@@ -176,7 +176,7 @@ brew upgrade cert-chain-doctor    # Upgrade to the latest version
 
 **Description:** Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus  
 **Homepage:** [https://github.com/smford/chrome-tab-cleaner](https://github.com/smford/chrome-tab-cleaner)  
-**Version:** `0.1.0`  
+**Version:** `0.2.0`  
 **License:** `MIT`  
 **Source:** [`Formula/chrome-tab-cleaner.rb`](Formula/chrome-tab-cleaner.rb)  
 
@@ -189,10 +189,10 @@ brew install smford/tap/chrome-tab-cleaner
 
 | OS / Architecture | Binary Package | SHA-256 Checksum |
 | :--- | :--- | :--- |
-| macOS (Apple Silicon (ARM64)) | [`chrome-tab-cleaner_0.1.0_darwin_arm64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.1.0/chrome-tab-cleaner_0.1.0_darwin_arm64.tar.gz) | `d7ee53f773206b3e...` |
-| macOS (Intel (x86_64)) | [`chrome-tab-cleaner_0.1.0_darwin_amd64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.1.0/chrome-tab-cleaner_0.1.0_darwin_amd64.tar.gz) | `288a66db2cc6c28d...` |
-| Linux (ARM64) | [`chrome-tab-cleaner_0.1.0_linux_arm64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.1.0/chrome-tab-cleaner_0.1.0_linux_arm64.tar.gz) | `9ab03d714c027c22...` |
-| Linux (x86_64) | [`chrome-tab-cleaner_0.1.0_linux_amd64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.1.0/chrome-tab-cleaner_0.1.0_linux_amd64.tar.gz) | `dd413d19fef3b6ec...` |
+| macOS (Apple Silicon (ARM64)) | [`chrome-tab-cleaner_0.2.0_darwin_arm64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.2.0/chrome-tab-cleaner_0.2.0_darwin_arm64.tar.gz) | `116458595595bf89...` |
+| macOS (Intel (x86_64)) | [`chrome-tab-cleaner_0.2.0_darwin_amd64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.2.0/chrome-tab-cleaner_0.2.0_darwin_amd64.tar.gz) | `94b070f8d284e7d8...` |
+| Linux (ARM64) | [`chrome-tab-cleaner_0.2.0_linux_arm64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.2.0/chrome-tab-cleaner_0.2.0_linux_arm64.tar.gz) | `fe53bbbb88234206...` |
+| Linux (x86_64) | [`chrome-tab-cleaner_0.2.0_linux_amd64.tar.gz`](https://github.com/smford/chrome-tab-cleaner/releases/download/v0.2.0/chrome-tab-cleaner_0.2.0_linux_amd64.tar.gz) | `3a518177067b6f49...` |
 
 **Installed Binaries:** `chrome-tab-cleaner`  
 
@@ -861,4 +861,4 @@ This repository uses **GitHub Actions** to automatically update documentation wh
 - Builds and deploys the static GitHub Page to [https://smford.github.io/homebrew-tap/](https://smford.github.io/homebrew-tap/)
 
 ---
-<sub>Documentation automatically generated on `2026-10-30 12:46:16 UTC`.</sub>
+<sub>Documentation automatically generated on `2026-11-16 23:54:26 UTC`.</sub>
