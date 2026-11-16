@@ -5,28 +5,28 @@
 class ChromeTabCleaner < Formula
   desc "Terminal UI for macOS to inspect Chrome tabs by Memory/CPU and bring them to focus"
   homepage "https://github.com/smford/chrome-tab-cleaner"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/smford/chrome-tab-cleaner/releases/download/v#{version}/chrome-tab-cleaner_#{version}_darwin_arm64.tar.gz"
-      sha256 "d7ee53f773206b3ecd733585d631fcfc65f29c1d2cd882cf106cb898e6a785bb"
+      sha256 "116458595595bf8931eabcfffc0e3723fa47fd2a8009ffccd8d301fc5346fa34"
     end
     on_intel do
       url "https://github.com/smford/chrome-tab-cleaner/releases/download/v#{version}/chrome-tab-cleaner_#{version}_darwin_amd64.tar.gz"
-      sha256 "288a66db2cc6c28d2767599f3a0e5dbb65e81195337571640b680fc06935fd78"
+      sha256 "94b070f8d284e7d8cf61b510007dcae38f86346df294eed5fa724bdb5488daea"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smford/chrome-tab-cleaner/releases/download/v#{version}/chrome-tab-cleaner_#{version}_linux_arm64.tar.gz"
-      sha256 "9ab03d714c027c22df0e595d4e8307a9415f05023848b689d3b75212e5af2609"
+      sha256 "fe53bbbb882342061bae7813e2d9b399fa1494afcb612d3c655f6e0ac586fb9c"
     end
     on_intel do
       url "https://github.com/smford/chrome-tab-cleaner/releases/download/v#{version}/chrome-tab-cleaner_#{version}_linux_amd64.tar.gz"
-      sha256 "dd413d19fef3b6ec7b711b0cc3f8b49ac6e221038d65c00219a9272d6edd7553"
+      sha256 "3a518177067b6f49b16924552d09f1900abed5674f21068e3eb308fa4faf0b88"
     end
   end
 
