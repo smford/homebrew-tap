@@ -9,23 +9,23 @@ class AwsCostReport < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.1/aws-cost-report_0.15.1_darwin_arm64.tar.gz"
-      sha256 "b35af234ff3fb9207d48455a8d5d8b60e1433095763744cddfebb80140830078"
+      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.2/aws-cost-report_0.15.2_darwin_arm64.tar.gz"
+      sha256 "2a2248579d9d4cc11864a5c827de1c9682446924ffb8cd24394993fc0e6a0e84"
     end
     on_intel do
-      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.1/aws-cost-report_0.15.1_darwin_amd64.tar.gz"
-      sha256 "bb3d4ba15f8496a4c283a3ff1472260b3a199d66ca090df25f86a8198aa00e3e"
+      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.2/aws-cost-report_0.15.2_darwin_amd64.tar.gz"
+      sha256 "25acaafa25a3b31409ffd8a5b1cff82ec94c234ca1280eb6e0a5d0db3c1de657"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.1/aws-cost-report_0.15.1_linux_arm64.tar.gz"
-      sha256 "207afa7907e5bc6c207fa3e0eefdbc0573eaeb4a9836cc78fdd89d6dfe88095b"
+      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.2/aws-cost-report_0.15.2_linux_arm64.tar.gz"
+      sha256 "3b787b6577bae364baf19ebbb0014c86ed6d44e2507750d78391217e97ffeed5"
     end
     on_intel do
-      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.1/aws-cost-report_0.15.1_linux_amd64.tar.gz"
-      sha256 "f75637f4bd95e1c880d9c59a8edd6f0530e3f11c2ea7ebbe860bb31f32370c11"
+      url "https://github.com/smford/aws-cost-report/releases/download/v0.15.2/aws-cost-report_0.15.2_linux_amd64.tar.gz"
+      sha256 "e540f64f72c4442ba6ce5b0ed5ccb1a47cc4071a04a4d60056ae39f3c34510f9"
     end
   end
 
